@@ -1,0 +1,14 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+{% block title %}Инцеденты - главная{% endblock %}
+
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'blocks/menu.html' %}
+        {% include 'blocks/incidents/my-incidents.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-dashboard">
+    <div class="block tenders-dashboard__wrapper">
+        <h1 class="tenders-dashboard__title">Мои поставщики: {{ providers.count }}</h1>
+        <a href="{% url 'new_tender' %}" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if tenders %}
+                {% for provider in providers %}
+                    <tr>
+                        <td class="my-incidents__cell"><a href="{{ provider.id }}">{{ provider.name }}</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Нет данных</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>

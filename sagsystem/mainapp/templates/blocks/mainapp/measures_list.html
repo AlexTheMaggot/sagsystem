@@ -1,0 +1,41 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-dashboard">
+    <div class="block tenders-dashboard__wrapper">
+        <h1 class="tenders-dashboard__title">Единицы измерения: {{ measures.count }}</h1>
+        <a href="add" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if measures %}
+                {% for measure in measures %}
+                    <tr>
+                        <td class="my-incidents__cell">{{ measure.name }}</td>
+                        <td><a href="{{ measure.id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ measure.id }}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Нет данных</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% for measure in measures %}
+    <div class='modal_modal' id='del_{{ measure.id }}'>
+        <div class='content'>
+            <h1>Подтвердите действие</h1>
+            <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{{ measure.id }}/delete">Подвердить</a>
+            <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ measure.id }}" href="#">Отмена</a>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,14 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
+        <h1 class="tenders-new__title">Новый поставщик</h1>
+        <form action="add" method="POST">
+            {% csrf_token %}
+            <label for="name">Название</label>
+            <input type="text" class="form-control" name="name" id="name">
+            <input type="hidden" name="tender" value="{{ tender.id }}">
+            <input type="submit" class="btn btn-success" value="Сохранить">
+
+        </form>
+    </div>
+</div>

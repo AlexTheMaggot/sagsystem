@@ -1,0 +1,71 @@
+<div class="col-xl-9 block__wrapper my-incidents">
+    <div class="block my-incidents__wrapper">
+        <h1 class="my-incidents__title">Мои инциденты</h1>
+        <a href="#" class="open-modal_modal my-incidents__add-new btn btn-success" data-modal_modal="#modal_modal1">Добавить</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Дата</th>
+                <th scope="col">Сотрудник</th>
+                <th scope="col">Отдел</th>
+                <th scope="col">Примечание</th>
+                <th scope="col">Файл</th>
+                <th scope="col">Изменить</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if incidents %}
+                {% for incident in incidents %}
+                    <tr>
+                        <td class="my-incidents__cell">{{ incident.date }}</td>
+                        <td class="my-incidents__cell">{{ incident.worker.first_name }} {{ incident.worker.last_name }}</td>
+                        <td class="my-incidents__cell">{{ incident.department }}</td>
+                        <td class="my-incidents__cell">{{ incident.comment }}</td>
+                        <td class="my-incidents__cell"><a href="{{ incident.file.url }}" target="_blank">Прикрепленный файл</a></td>
+                        <td class="my-incidents__cell"><a href="#" class="open-modal_modal btn btn-warning" data-modal_modal="#modal_edit_{{ incident.id }}">Изменить</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Нет данных</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class='modal_modal' id='modal_modal1'>
+        <div class='content'>
+            <h1>Новый инцидент</h1>
+            <label for="new_date">Дата</label>
+            <input class="form-control" type="date" id="new_date">
+            <label for="new_time">Время</label>
+            <input class="form-control" type="time" id="new_time">
+            <label for="new_worker">Сотрудник</label>
+            <select class="custom-select" id="new_worker">
+                {% for worker in workers %}
+                    <option>{{ worker.first_name }} {{ worker.last_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="new_department">Отдел</label>
+            <select class="custom-select" id="new_department">
+                {% for department in departments %}
+                    <option>{{ department.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="new_file" class="btn btn-dark">Файл</label>
+            <input type="file" class="d-none" id="new_file">
+            <a class='btn btn-danger close-modal_modal btn' data-modal_modal="#modal_modal1" href="#">Понятно</a>
+        </div>
+</div>
+
+{% for incident in incidents %}
+    <div class='modal_modal' id='modal_edit_{{ incident.id }}'>
+        <div class='content'>
+            <h1>Изменить данные</h1>
+            <p>{{ incident.comment }}</p>
+            <a class='btn btn-danger close-modal_modal btn' data-modal_modal="#modal_edit_{{ incident.id }}" href="#">Понятно</a>
+        </div>
+    </div>
+{% endfor %}

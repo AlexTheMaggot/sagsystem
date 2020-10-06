@@ -1,0 +1,22 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Вход в систему{% endblock %}
+{% block content %}
+<div class="row align-items-center auth">
+    <div class="col-xl-4 offset-xl-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-12 auth__col">
+        <h1 class="auth__title">Вход в систему</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="auth__input form-group">
+                <label class="auth__label" for="id_username">Имя пользователя</label>
+                <input class="form-control" type="text" name="username" id="id_username">
+            </div>
+            <div class="auth__input form-group">
+                <label class="auth__label" for="id_password">Пароль</label>
+                <input class="form-control" type="password" name="password" id="id_password">
+            </div>
+            <input class="auth__btn btn btn-success" type="submit">
+        </form>
+    </div>
+</div>
+{% endblock %}

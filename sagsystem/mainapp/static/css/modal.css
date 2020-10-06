@@ -1,0 +1,60 @@
+.overlay {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s ease-in-out;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.overlay.open {
+  opacity: 1;
+  pointer-events: inherit;
+}
+.overlay .modal_modal {
+  background: white;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0px 1px 10px rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s ease-in-out;
+  max-height: 100vh;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+.overlay .modal_modal.open {
+  opacity: 1;
+  pointer-events: inherit;
+}
+.overlay .modal_modal.open .content {
+  transform: translate(0, 0px);
+  opacity: 1;
+}
+.overlay .modal_modal .content {
+  transform: translate(0, -10px);
+  opacity: 0;
+  transition: 0.35s ease-in-out;
+}
+.overlay .modal_modal .title {
+  margin-top: 0;
+}
+
+@media (min-width: 576px) {
+  .overlay {
+    padding: 40px;
+  }
+  .overlay .modal_modal {
+    padding: 40px 80px;
+  }
+}

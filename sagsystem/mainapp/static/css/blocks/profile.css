@@ -1,0 +1,10 @@
+.profile__wrapper {
+  display: flex;
+}
+.profile__user {
+  display: block;
+}
+.profile__exit {
+  display: block;
+}
+/*# sourceMappingURL=profile.css.map */

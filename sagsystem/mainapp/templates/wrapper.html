@@ -1,0 +1,37 @@
+<!-- Loading Staticfiles -->
+{% load static %}
+<!-- End Loading Staticfiles -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <!-- End Meta Tags -->
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- End Stylesheets -->
+
+    <!-- Title -->
+    <title>{% block title %}NO TITLE!{% endblock %}</title>
+    <!-- End Title -->
+</head>
+<body>
+
+<!-- Background Wrapper -->
+<div class="container-fluid background">
+        {% block content %}
+            NO CONTENT!
+        {% endblock %}
+</div>
+<!-- End Background Wrapper -->
+
+<!-- Scripts -->
+<script src="{% static 'js/jq_351.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<!-- End Scripts -->
+
+</body>
+</html>

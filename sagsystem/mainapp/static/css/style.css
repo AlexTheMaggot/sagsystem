@@ -1,0 +1,125 @@
+/* Libraries */
+@import "bootstrap.min.css";
+@import "modal.css";
+/* End Libraries */
+/* Mixins */
+/* End Mixins */
+/* Modules */
+.auth {
+  height: 100vh;
+}
+.auth__col {
+  padding: 30px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+.auth__title {
+  text-align: center;
+}
+.auth__input {
+  width: 300px;
+  margin: 20px auto 0 auto;
+}
+.auth__btn {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.incidents {
+  padding-left: 10px;
+}
+/* End Modules */
+/* Blocks */
+.logo__wrapper {
+  padding: 10px;
+  text-align: center;
+}
+.logo__img {
+  height: 80px;
+}
+.title__wrapper {
+  padding: 25px 10px;
+}
+.title__text {
+  line-height: 40px;
+}
+.profile__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100px;
+  padding: 10px;
+}
+.profile__user {
+  margin: 0 20px 0 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.profile__exit {
+  display: block;
+}
+.menu__wrapper {
+  padding: 10px;
+}
+.my-incidents__wrapper {
+  padding: 10px;
+}
+.my-incidents__title {
+  display: inline-block;
+}
+.my-incidents__add-new {
+  display: inline-block;
+  margin: 0 0 20px 20px;
+}
+.my-incidents__cell {
+  vertical-align: middle !important;
+}
+.tenders-dashboard__wrapper {
+  padding: 10px;
+}
+.tenders-dashboard__title {
+  display: inline-block;
+}
+.tenders-dashboard__new-tender {
+  display: inline-block;
+  margin: 0 0 16px 20px;
+}
+.tenders-dashboard__buttoncell {
+  width: 100px;
+}
+.tenders-new__title {
+  margin-bottom: 40px;
+}
+.tenders-new__wrapper {
+  padding: 10px;
+}
+.tenders-new__input {
+  max-width: 300px;
+}
+.tenders-new__textarea {
+  max-width: 600px;
+  resize: none;
+}
+.tenders-new__button {
+  margin-top: 60px;
+}
+.tenders-new__select {
+  margin: 20px 0;
+  max-width: 600px;
+}
+/* End Blocks */
+/* Global Styles */
+.background {
+  background: url("../img/bg.jpg") center;
+  background-size: cover;
+  height: 100vh;
+}
+.block {
+  background: #FFFFFF;
+  margin: 10px 10px 0 0;
+  border-radius: 10px;
+}
+.block__wrapper {
+  padding: 0;
+}
+/* End Global Styles */
+/*# sourceMappingURL=style.css.map */

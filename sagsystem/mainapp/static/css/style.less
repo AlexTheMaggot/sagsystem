@@ -1,0 +1,41 @@
+/* Libraries */
+@import "bootstrap.min.css";
+@import "modal.css";
+/* End Libraries */
+
+/* Mixins */
+@import "colors";
+/* End Mixins */
+
+/* Modules */
+@import "auth/auth";
+@import "incidents/incidents";
+/* End Modules */
+
+/* Blocks */
+@import "blocks/logo";
+@import "blocks/title";
+@import "blocks/profile";
+@import "blocks/menu";
+@import "blocks/incidents/my-incidents";
+@import "blocks/tender/tenders-dashboard";
+@import "blocks/tender/new_tender";
+/* End Blocks */
+
+/* Global Styles */
+.background {
+  background: url("../img/bg.jpg") center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.block {
+  background: @white;
+  margin: 10px 10px 0 0;
+  border-radius: 10px;
+
+  &__wrapper {
+    padding: 0;
+  }
+}
+/* End Global Styles */

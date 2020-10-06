@@ -1,0 +1,9 @@
+<div class="col-xl-6 col-12 block__wrapper title">
+    <div class="title__wrapper block">
+        {% if 'tender/' in request.path %}
+            <h1 class="title__text">Тендеры</h1>
+        {% else %}
+            <h1 class="title__text">Главная панель</h1>
+        {% endif %}
+    </div>
+</div>

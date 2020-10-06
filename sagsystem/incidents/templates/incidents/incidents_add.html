@@ -1,0 +1,38 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+{% block title %}Новый инцидент{% endblock %}
+
+{% block content %}
+    <div class="container-fluid incidents">
+        <div class="row incidents__row">
+            <div class="col-xl-3 col-12 block__wrapper">
+                <div class="logo__wrapper block">
+                    <img class="logo" src="{% static 'img/logo.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-xl-6 col-12 block__wrapper">
+                <div class="title__wrapper block">
+                    <h1 class="title">Главная панель</h1>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12 block__wrapper">
+                <div class="exit block">
+                    <p class="exit__user">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                    <a href="{% url 'logout' %}" class="btn btn-danger exit__button">Выйти</a>
+                </div>
+            </div>
+            <div class="col-xl-3 block__wrapper">
+                <div class="menu block">
+                    <h1>Меню</h1>
+                </div>
+            </div>
+            <div class="col-xl-9 block__wrapper">
+                <div class="dashboard block">
+                    <h1 class="dashboard__title">Добавить</h1>
+                    <a href="{% url 'incidents' %}" class="dashboard__addnew btn btn-danger">Отмена</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
