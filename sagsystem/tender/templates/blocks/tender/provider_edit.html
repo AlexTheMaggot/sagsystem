@@ -1,0 +1,31 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
+        <h1 class="tenders-new__title">Изменить Поставщика</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-xl-6">
+                    <label for="name">Название организации</label>
+                    <input type="text" class="tenders-new__input form-control" name="name" id="name" value="{{ provider.name }}">
+                    <label for="contact">ФИО Поставщика</label>
+                    <input type="text" class="tenders-new__input form-control" name="contact" id="contact" value="{% if provider.contact %}{{ provider.contact }}{% endif %}">
+                    <label for="phone_1">Номер телефона 1</label>
+                    <input type="text" class="tenders-new__input form-control" name="phone_1" id="phone_1" value="{% if provider.phone_1 %}{{ provider.phone_1 }}{% endif %}">
+                    <label for="phone_2">Номер телефона 2</label>
+                    <input type="text" class="tenders-new__input form-control" name="phone_2" id="phone_2" value="{% if provider.phone_2 %}{{ provider.phone_2 }}{% endif %}">
+                    <label for="email">E-mail</label>
+                    <input type="text" class="tenders-new__input form-control" name="email" id="email" value="{% if provider.email %}{{ provider.email }}{% endif %}">
+                    <label for="inn">ИНН</label>
+                    <input type="text" class="tenders-new__input form-control" name="inn" id="inn" value="{% if provider.inn %}{{ provider.inn }}{% endif %}">
+                </div>
+                <div class="col-xl-6">
+                    <label for="description">Описание</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class=" form-control tenders-new__textarea">{% if provider.description %}{{ provider.description }}{% endif %}</textarea>
+                </div>
+            </div>
+            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+            <a href="/tender/providers" class="tenders-new__button btn btn-dark">Отмена</a>
+        </form>
+    </div>
+</div>

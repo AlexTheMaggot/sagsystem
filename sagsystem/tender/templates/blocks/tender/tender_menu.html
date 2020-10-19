@@ -3,11 +3,20 @@
         <h1 class="menu__title">Меню</h1>
         <nav>
             <ul>
-                <li><a href="/tender">Тендеры</a></li>
-                <li><a href="/tender/products">Товары</a></li>
-                <li><a href="/tender/providers">Поставщики</a></li>
-                <li><a href="/measures">Единицы измерения</a></li>
+                <li><a href="/tender/">Тендеры</a></li>
+                <li><a href="/tender/products/">Товары</a></li>
+                <li><a href="/tender/product-category/">Категории товаров</a></li>
+                <li><a href="/tender/providers/">Поставщики</a></li>
+                <li><a href="/measures/">Единицы измерения</a></li>
             </ul>
         </nav>
+        {% if 'tender/products' in request.path %}
+            <h1>Категории</h1>
+            <ul>
+                {% for category in categories %}
+                    <li><a href="/tender/products/category/{{ category.id }}/">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 </div>

@@ -2,18 +2,40 @@
 <div class="col-xl-9 block__wrapper tenders-dashboard">
     <div class="block tenders-dashboard__wrapper">
         <h1 class="tenders-dashboard__title">Мои поставщики: {{ providers.count }}</h1>
-        <a href="{% url 'new_tender' %}" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <a href="/tender/providers/add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">Название</th>
+                <th scope="col">Название организации</th>
+                <th scope="col">ФИО Поставщика</th>
+                <th scope="col">Номер телефона</th>
+                <th scope="col">Описание</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
             </tr>
             </thead>
             <tbody>
-            {% if tenders %}
+            {% if providers %}
                 {% for provider in providers %}
                     <tr>
-                        <td class="my-incidents__cell"><a href="{{ provider.id }}">{{ provider.name }}</a></td>
+                        <td class="my-incidents__cell"><a href="{{ provider.id }}/">{{ provider.name }}</a></td>
+                        {% if provider.contact %}
+                            <td class="my-incidents__cell">{{ provider.contact }}</td>
+                        {% else %}
+                            <td class="my-incidents__cell">Нет</td>
+                        {% endif %}
+                        {% if provider.phone_1 %}
+                            <td class="my-incidents__cell">{{ provider.phone_1 }}</td>
+                        {% else %}
+                            <td class="my-incidents__cell">Нет</td>
+                        {% endif %}
+                        {% if provider.description %}
+                            <td class="my-incidents__cell">{{ provider.description }}</td>
+                        {% else %}
+                            <td class="my-incidents__cell">Нет</td>
+                        {% endif %}
+                        <td><a href="{{ provider.id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ provider.id }}">Удалить</a></td>
                     </tr>
                 {% endfor %}
             {% else %}
@@ -25,3 +47,13 @@
         </table>
     </div>
 </div>
+
+{% for provider in providers %}
+    <div class='modal_modal' id='del_{{ provider.id }}'>
+        <div class='content'>
+            <h1>Подтвердите действие</h1>
+            <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{{ provider.id }}/delete">Подвердить</a>
+            <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ provider.id }}" href="#">Отмена</a>
+        </div>
+    </div>
+{% endfor %}

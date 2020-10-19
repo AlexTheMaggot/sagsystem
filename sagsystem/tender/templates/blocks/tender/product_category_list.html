@@ -1,0 +1,41 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-dashboard">
+    <div class="block tenders-dashboard__wrapper">
+        <h1 class="tenders-dashboard__title">Категории товаров: {{ product_categories.count }}</h1>
+        <a href="add" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if product_categories %}
+                {% for product_category in product_categories %}
+                    <tr>
+                        <td class="my-incidents__cell">{{ product_category.name }}</td>
+                        <td><a href="{{ product_category.id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ product_category.id }}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Нет данных</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% for product_category in product_categories %}
+    <div class='modal_modal' id='del_{{ product_category.id }}'>
+        <div class='content'>
+            <h1>Подтвердите действие</h1>
+            <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{{ product_category.id }}/delete">Подвердить</a>
+            <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ product_category.id }}" href="#">Отмена</a>
+        </div>
+    </div>
+{% endfor %}

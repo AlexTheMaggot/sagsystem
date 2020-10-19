@@ -8,6 +8,16 @@
             <input type="text" class="tenders-new__input form-control" name="name" id="name">
             <div class="tenders-new__select input-group mb-3">
                 <div class="input-group-prepend">
+                    <label class="input-group-text" for="category">Категория</label>
+                </div>
+                <select class="custom-select" name="category" id="category">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tenders-new__select input-group mb-3">
+                <div class="input-group-prepend">
                     <label class="input-group-text" for="measure">Единица измерения</label>
                 </div>
                 <select class="custom-select" name="measure" id="measure">

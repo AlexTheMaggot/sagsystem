@@ -1,34 +1,45 @@
 {% load static %}
-<div class="col-xl-9 block__wrapper tenders-dashboard">
-    <div class="block tenders-dashboard__wrapper">
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
         <h1 class="tenders-dashboard__title">{{ tender.name }}</h1>
-        <a href="#" class="btn btn-warning tenders-dashboard__new-tender">Изменить</a>
-        <a href="#" class="open-modal_modal btn btn-danger tenders-dashboard__new-tender" data-modal_modal="#tender-delete">Удалить</a>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Наименование товара</th>
-                {% for offer in offers %}
-                    <th>{{ offer.name }}</th>
-                {% endfor %}
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Нет данных</td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="new_offer" class="btn btn-success">Добавить поставщика</a>
-        <a href="#" class="btn btn-success">Добавить товар</a>
-    </div>
-</div>
-
-<div class='modal_modal' id='tender-delete'>
-        <div class='content'>
-            <h1>Подтвердите действие</h1>
-            <a class='btn btn-danger' data-modal_modal="#tender-delete" href="delete/">Подвердить</a>
-            <a class='close-modal_modal btn btn-dark' data-modal_modal="#tender-delete" href="#">Отмена</a>
-
+        <a href="edit/" class="btn btn-warning tenders-dashboard__new-tender">Изменить</a>
+        <a href="#" class="open-modal_modal btn btn-danger tenders-dashboard__new-tender" data-modal_modal="#del_{{ tender.id }}">Удалить</a>
+        <a href="/tender/" class="btn btn-dark tenders-dashboard__new-tender">Назад</a>
+        <div class="row">
+            <div class="col-xl-4">
+                <h5>Кем создан</h5>
+                <p>{% if tender.creator %}{{ tender.creator.first_name }} {{ tender.creator.last_name }}{% else %}Не указано{% endif %}</p>
+                <h5>Описание</h5>
+                <p>{% if tender.description %}{{ tender.description }}{% else %}Не указано{% endif %}</p>
+            </div>
+            <div class="col-xl-4">
+                <h5 class="d-inline-block">Участники: {{ participants.count }}</h5>
+                <a href="participant_add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+                <ul>
+                    {% for participant in participants %}
+                        <li><a href="{{ participant.id }}/">{{ participant.provider.name }}</a><a href="{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-xl-4">
+                <h5 class="d-inline-block">Товары: {{ goods.count }}</h5>
+                <a href="goods_add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+                <ul>
+                    {% for participant in goods %}
+                        <li><a href="{{ participant.id }}/">{{ participant.product.name }}</a><a href="{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-xl-12">
+                {{ table|safe }}
+            </div>
         </div>
     </div>
+</div>
+<div class='modal_modal' id='del_{{ tender.id }}'>
+    <div class='content'>
+        <h1>Подтвердите действие</h1>
+        <a class='btn btn-danger' href="delete/">Подвердить</a>
+        <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ tender.id }}" href="#">Отмена</a>
+    </div>
+</div>

@@ -8,6 +8,20 @@
             <input type="text" class="tenders-new__input form-control" name="name" id="name" value="{{ product.name }}">
             <div class="tenders-new__select input-group mb-3">
                 <div class="input-group-prepend">
+                    <label class="input-group-text" for="category">Категория</label>
+                </div>
+                <select class="custom-select" name="category" id="category">
+                    {% for category in categories %}
+                        {% if product.category.id == category.id %}
+                            <option value="{{ category.id }}" selected>{{ category.name }}</option>
+                        {% else %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tenders-new__select input-group mb-3">
+                <div class="input-group-prepend">
                     <label class="input-group-text" for="measure">Единица измерения</label>
                 </div>
                 <select class="custom-select" name="measure" id="measure">

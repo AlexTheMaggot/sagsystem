@@ -1,0 +1,31 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
+        <h1 class="tenders-new__title">Новый Поставщик</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-xl-6">
+                    <label for="name">Название организации</label>
+                    <input type="text" class="tenders-new__input form-control" name="name" id="name">
+                    <label for="contact">ФИО Поставщика</label>
+                    <input type="text" class="tenders-new__input form-control" name="contact" id="contact">
+                    <label for="phone_1">Номер телефона 1</label>
+                    <input type="text" class="tenders-new__input form-control" name="phone_1" id="phone_1">
+                    <label for="phone_2">Номер телефона 2</label>
+                    <input type="text" class="tenders-new__input form-control" name="phone_2" id="phone_2">
+                    <label for="email">E-mail</label>
+                    <input type="text" class="tenders-new__input form-control" name="email" id="email">
+                    <label for="inn">ИНН</label>
+                    <input type="text" class="tenders-new__input form-control" name="inn" id="inn">
+                </div>
+                <div class="col-xl-6">
+                    <label for="description">Описание</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class=" form-control tenders-new__textarea"></textarea>
+                </div>
+            </div>
+            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+            <a href="/tender/providers/" class="tenders-new__button btn btn-dark">Отмена</a>
+        </form>
+    </div>
+</div>

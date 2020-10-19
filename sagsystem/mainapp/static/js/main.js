@@ -47,4 +47,13 @@ $(window).on('load', function () {
             e.preventDefault();
         }
     });
+    $('.dataframe>thead>tr:first-child>th:first-child').html('Участник тендера');
+    $('.dataframe>thead>tr:last-child>th:first-child').html('Товар');
+
+    $('.dataframe>tbody>tr>td').attr('style', 'text-align: right;').each(function () {
+        if ($(this).html() === 'NaN') {
+            $(this).html('Нет');
+        }
+    });
+    $('.dataframe').attr('border', '0');
 });

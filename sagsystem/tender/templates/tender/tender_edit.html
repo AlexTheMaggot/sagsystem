@@ -1,0 +1,14 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+{% block title %}Товары{% endblock %}
+
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'blocks/tender/tender_menu.html' %}
+        {% include 'blocks/tender/tender_edit.html' %}
+    </div>
+{% endblock %}

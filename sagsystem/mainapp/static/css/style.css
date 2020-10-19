@@ -109,9 +109,8 @@
 /* End Blocks */
 /* Global Styles */
 .background {
-  background: url("../img/bg.jpg") center;
-  background-size: cover;
-  height: 100vh;
+  background: url("../img/bg.jpg") center repeat;
+  min-height: 100vh;
 }
 .block {
   background: #FFFFFF;

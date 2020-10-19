@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp.apps.MainappConfig',
     'incidents.apps.IncidentsConfig',
-    'tender.apps.TenderConfig'
+    'tender.apps.TenderConfig',
+    'testapp.apps.TestappConfig',
 ]
 
 MIDDLEWARE = [

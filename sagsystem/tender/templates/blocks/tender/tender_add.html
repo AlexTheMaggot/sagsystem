@@ -1,0 +1,16 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
+        <h1 class="tenders-new__title">Новый Тендер</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="name">Название</label>
+            <input type="text" class="tenders-new__input form-control" name="name" id="name">
+            <label for="description">Описание</label>
+            <textarea name="description" id="description" cols="30" rows="10" class=" form-control tenders-new__textarea"></textarea>
+            <input type="hidden" value="{{ request.user.id }}" name="creator" id="creator">
+            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+            <a href="/tender/" class="tenders-new__button btn btn-dark">Отмена</a>
+        </form>
+    </div>
+</div>
