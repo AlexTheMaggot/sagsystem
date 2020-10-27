@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TenderForm, ProductForm, ProductCategoryForm, ProviderForm, ParticipantForm, GoodsForm
-from .models import Tender, Product, Provider, ProductCategory, Participant, Goods
+from .models import Tender, Product, Provider, ProductCategory, Participant, Goods, Price, SelectedPrice
 from mainapp.models import Measure
 from django_pandas.io import read_frame
 
@@ -17,18 +17,20 @@ def tender_detail(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
     participants = Participant.objects.all().filter(tender_id__exact=tender_id)
     goods = Goods.objects.all().filter(tender_id__exact=tender_id)
+    prices = Price.objects.filter(tender_id=tender_id)
+    selected_prices = SelectedPrice.objects.filter(tender_id=tender_id)
     context = {
         'tender': tender,
         'participants': participants,
         'goods': goods,
+        'selected_prices': selected_prices,
     }
-    if goods:
-        rows = ['product__name']
+    if prices:
+        fieldnames = ['goods__product__name', 'participant__provider__name', 'price']
+        rows = ['goods__product__name']
         cols = ['participant__provider__name']
-        fieldnames = ['product__name', 'price', 'participant__provider__name']
-
-        df = goods.to_pivot_table(fieldnames=fieldnames, values='price',
-                                  rows=rows, cols=cols, verbose=True)
+        values = 'price'
+        df = prices.to_pivot_table(rows=rows, cols=cols, values=values, fieldnames=fieldnames, verbose=True)
         table = df.to_html(classes=['table', 'table-striped'])
         context['table'] = table
     return render(request, 'tender/tender_detail.html', context)
@@ -39,7 +41,8 @@ def tender_add(request):
         form = TenderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/tender/')
+            url = '/tender/' + str(form.save().id) + '/'
+            return redirect(url)
     return render(request, 'tender/tender_add.html')
 
 
@@ -213,6 +216,7 @@ def provider_edit(request, id):
 def participant_add(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
     providers = Provider.objects.all().order_by('name')
+    goods = Goods.objects.filter(tender_id=tender_id)
     context = {
         'tender': tender,
         'providers': providers,
@@ -221,39 +225,12 @@ def participant_add(request, tender_id):
         form = ParticipantForm(request.POST)
         if form.is_valid():
             form.save()
+            for g in goods:
+                price = Price.objects.create(tender_id=g.tender_id, goods_id=g.id, participant_id=form.save().id,
+                                             price=0)
             url = '/tender/' + str(tender.id) + '/'
             return redirect(url)
     return render(request, 'tender/participant_add.html', context)
-
-
-def participant_detail(request, tender_id, participant_id):
-    tender = get_object_or_404(Tender, id=tender_id)
-    goods = Goods.objects.all().filter(participant_id__exact=participant_id)
-    participant = get_object_or_404(Participant, id=participant_id)
-    context = {
-        'tender': tender,
-        'participant': participant,
-        'goods': goods,
-    }
-    return render(request, 'tender/participant_detail.html', context)
-
-
-def participant_edit(request, tender_id, participant_id):
-    tender = get_object_or_404(Tender, id=tender_id)
-    participant = get_object_or_404(Participant, id=participant_id)
-    providers = Provider.objects.all().order_by('name')
-    context = {
-        'tender': tender,
-        'providers': providers,
-        'participant': participant,
-    }
-    if request.method == 'POST':
-        form = ParticipantForm(request.POST, instance=participant)
-        if form.is_valid():
-            form.save()
-            url = '/tender/' + str(tender.id) + '/' + str(participant.id) + '/'
-            return redirect(url)
-    return render(request, 'tender/participant_edit.html', context)
 
 
 def participant_delete(request, tender_id, participant_id):
@@ -264,46 +241,79 @@ def participant_delete(request, tender_id, participant_id):
     return redirect(url)
 
 
-def goods_add(request, tender_id, participant_id):
+def goods_add(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
-    participant = get_object_or_404(Participant, id=participant_id)
     products = Product.objects.all().order_by('name')
+    participants = Participant.objects.filter(tender_id=tender_id)
     context = {
         'tender': tender,
-        'participant': participant,
         'products': products,
     }
     if request.method == 'POST':
         form = GoodsForm(request.POST)
         if form.is_valid():
             form.save()
-            url = '/tender/' + str(tender.id) + '/' + str(participant.id) + '/'
+            for p in participants:
+                price = Price.objects.create(tender_id=p.tender_id, participant_id=p.id, goods_id=form.save().id,
+                                             price=0)
+            url = '/tender/' + str(tender.id) + '/'
             return redirect(url)
     return render(request, 'tender/goods_add.html', context)
 
 
-def goods_edit(request, tender_id, participant_id, goods_id):
-    tender = get_object_or_404(Tender, id=tender_id)
-    participant = get_object_or_404(Participant, id=participant_id)
-    goods = get_object_or_404(Goods, id=goods_id)
-    context = {
-        'tender': tender,
-        'participant': participant,
-        'goods': goods,
-    }
-    if request.method == 'POST':
-        form = GoodsForm(request.POST, instance=goods)
-        if form.is_valid():
-            form.save()
-            url = '/tender/' + str(tender.id) + '/' + str(participant.id) + '/'
-            return redirect(url)
-    return render(request, 'tender/goods_edit.html', context)
-
-
-def goods_delete(request, tender_id, participant_id, goods_id):
-    participant = get_object_or_404(Participant, id=participant_id)
+def goods_delete(request, tender_id, goods_id):
     tender = get_object_or_404(Tender, id=tender_id)
     goods = get_object_or_404(Goods, id=goods_id)
     goods.delete()
-    url = '/tender/' + str(tender.id) + '/' + str(participant.id) + '/'
+    url = '/tender/' + str(tender.id) + '/'
+    return redirect(url)
+
+
+def prices_edit(request, tender_id):
+    tender = Tender.objects.get(id=tender_id)
+    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
+    context = {
+        'prices': prices,
+        'tender': tender,
+    }
+    if request.method == 'POST':
+        for p in prices:
+            form = request.POST[str(p.id)]
+            change_price = Price.objects.get(id=p.id)
+            change_price.price = form
+            change_price.save()
+        url = '/tender/' + str(tender_id) + '/'
+        return redirect(url)
+    return render(request, 'tender/prices_edit.html', context)
+
+
+def select_winners(request, tender_id):
+    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
+    tender = Tender.objects.get(id=tender_id)
+    context = {
+        'prices': prices,
+        'tender': tender,
+    }
+    if request.method == 'POST':
+
+        print(request.POST)
+        for p in prices:
+            winner = 'winner_' + str(p.goods.product.id)
+            winner_price = 'winner_' + str(p.id)
+            quantity = 'quantity_' + str(p.id)
+            if winner in request.POST:
+                if winner_price in request.POST[winner]:
+                    sum = int(p.price) * int(request.POST[quantity])
+                    add = SelectedPrice(tender_id=tender_id, price_id=p.id, quantity=request.POST[quantity], sum=sum)
+                    add.save()
+        return redirect('/tender/' + str(tender_id) + '/')
+
+    return render(request, 'tender/select_winners.html', context)
+
+
+def select_winners_delete(request, tender_id):
+    selected_winners = SelectedPrice.objects.filter(tender_id=tender_id)
+    url = '/tender/' + str(tender_id) + '/'
+    for sw in selected_winners:
+        sw.delete()
     return redirect(url)

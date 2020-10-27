@@ -1,0 +1,20 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-new">
+    <div class="block tenders-new__wrapper">
+        <h1 class="tenders-new__title">Установить цены</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for price in prices %}
+                        <label for="{{ price.id }}">{{ price.goods.product.name }} от {{ price.participant.provider.name }}</label>
+                        <input type="number" id="{{ price.id }}" name="{{ price.id }}" value="{{ price.price }}" class="form-control mb-4">
+                    {% endfor %}
+
+                    <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+                    <a href="/tender/{{ tender.id }}/" class="tenders-new__button btn btn-dark">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

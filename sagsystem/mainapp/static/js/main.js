@@ -47,7 +47,7 @@ $(window).on('load', function () {
             e.preventDefault();
         }
     });
-    $('.dataframe>thead>tr:first-child>th:first-child').html('Участник тендера');
+    $('.dataframe>thead>tr:first-child>th:first-child').html('Участник тендера').addClass('text-left');
     $('.dataframe>thead>tr:last-child>th:first-child').html('Товар');
 
     $('.dataframe>tbody>tr>td').attr('style', 'text-align: right;').each(function () {
@@ -56,4 +56,12 @@ $(window).on('load', function () {
         }
     });
     $('.dataframe').attr('border', '0');
+    function total_sum() {
+        let total_sum = 0;
+        $('.price_sum').each(function () {
+            total_sum += Number($(this).html());
+        });
+        $('.total_sum').html(String(total_sum));
+    }
+    total_sum();
 });

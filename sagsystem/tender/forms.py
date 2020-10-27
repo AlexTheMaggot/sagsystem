@@ -36,4 +36,4 @@ class ParticipantForm(forms.ModelForm):
 class GoodsForm(forms.ModelForm):
     class Meta:
         model = Goods
-        fields = ('tender', 'participant', 'product', 'price')
+        fields = ('tender', 'product', )

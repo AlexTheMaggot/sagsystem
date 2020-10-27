@@ -11,13 +11,14 @@
                 <p>{% if tender.creator %}{{ tender.creator.first_name }} {{ tender.creator.last_name }}{% else %}Не указано{% endif %}</p>
                 <h5>Описание</h5>
                 <p>{% if tender.description %}{{ tender.description }}{% else %}Не указано{% endif %}</p>
+                <a href="prices_edit/" class="btn btn-primary d-inline-block mb-4" role="button">Установить цены</a>
             </div>
             <div class="col-xl-4">
                 <h5 class="d-inline-block">Участники: {{ participants.count }}</h5>
                 <a href="participant_add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
                 <ul>
                     {% for participant in participants %}
-                        <li><a href="{{ participant.id }}/">{{ participant.provider.name }}</a><a href="{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
+                        <li>{{ participant.provider.name }}<a href="participants/{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -26,12 +27,50 @@
                 <a href="goods_add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
                 <ul>
                     {% for participant in goods %}
-                        <li><a href="{{ participant.id }}/">{{ participant.product.name }}</a><a href="{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
+                        <li>{{ participant.product.name }}<a href="goods/{{ participant.id }}/delete/" class="text-danger ml-4">Удалить</a></li>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-xl-12">
+            <div class="col-12">
                 {{ table|safe }}
+            </div>
+            <div class="col-12">
+                {% if selected_prices %}
+                    <a href="#" class="btn btn-danger d-inline-block mb-4 open-modal_modal" data-modal_modal="#del_selected_{{ tender.id }}">Удалить победителей тендера</a>
+                {% else %}
+                    <a href="select-winners/" class="btn btn-primary d-inline-block mb-4">Указать победителей тендера</a>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                {% if selected_prices %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Цель затрат</th>
+                            <th scope="col">Старая цена</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col" class="tenders-dashboard__buttoncell">Цена</th>
+                            <th scope="col" class="tenders-dashboard__buttoncell">Сумма</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for sp in selected_prices %}
+                                <tr>
+                                    <td class="my-incidents__cell">{{ sp.price.goods.product.name }}</td>
+                                    <td class="my-incidents__cell"></td>
+                                    <td class="my-incidents__cell">{{ sp.quantity }}</td>
+                                    <td class="my-incidents__cell">{{ sp.price.price }}</td>
+                                    <td class="my-incidents__cell price_sum">{{ sp.sum }}</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="my-incidents__cell font-weight-bold">Итого</td>
+                                <td class="my-incidents__cell total_sum"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -41,5 +80,12 @@
         <h1>Подтвердите действие</h1>
         <a class='btn btn-danger' href="delete/">Подвердить</a>
         <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ tender.id }}" href="#">Отмена</a>
+    </div>
+</div>
+<div class='modal_modal' id='del_selected_{{ tender.id }}'>
+    <div class='content'>
+        <h1>Подтвердите действие</h1>
+        <a class='btn btn-danger' href="delete_selected/">Подвердить</a>
+        <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_selected_{{ tender.id }}" href="#">Отмена</a>
     </div>
 </div>

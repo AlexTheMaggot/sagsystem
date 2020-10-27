@@ -38,7 +38,20 @@ class Participant(models.Model):
 
 class Goods(models.Model):
     tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
-    participant = models.ForeignKey(Participant, on_delete=models.CASCADE, related_name='goods')
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.SET_NULL, null=True, blank=True, related_name='goods')
-    price = models.IntegerField()
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.SET_NULL, null=True, blank=True)
+
+
+class Price(models.Model):
+    tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
+    participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    price = models.IntegerField(null=True, blank=True)
+
     objects = DataFrameManager()
+
+
+class SelectedPrice(models.Model):
+    tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
+    price = models.ForeignKey(Price, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    sum = models.IntegerField()

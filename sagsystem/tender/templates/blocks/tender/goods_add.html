@@ -5,7 +5,6 @@
         <form method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ tender.id }}" name="tender" id="tender">
-            <input type="hidden" value="{{ participant.id }}" name="participant" id="participant">
             <div class="tenders-new__select input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="product">Товар</label>
@@ -16,10 +15,8 @@
                     {% endfor %}
                 </select>
             </div>
-            <label for="price">Цена</label>
-            <input type="number" class="tenders-new__input form-control" name="price" id="price">
             <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
-            <a href="/tender/{{ tender.id }}/{{ participant.id }}/" class="tenders-new__button btn btn-dark">Отмена</a>
+            <a href="/tender/{{ tender.id }}/" class="tenders-new__button btn btn-dark">Отмена</a>
         </form>
     </div>
 </div>
