@@ -1,0 +1,97 @@
+{% load static %}
+<div class="row tender__print">
+    <div class="col-3 offset-8 block__wrapper logo">
+        <div class="logo__wrapper block">
+            <img class="logo__img" src="{% static 'img/logo.png' %}" alt="">
+        </div>
+    </div>
+    <div class="col-12">
+        {{ table|safe }}
+    </div>
+    <div class="col-12">
+        <table class="text-center tender__print_table">
+            <thead class="tender__print_thead">
+                <tr class="tender__print_tr">
+                    <th rowspan="2" class="tender__print_th">Цель затрат</th>
+                    <th rowspan="2" class="tender__print_th">Старая цена</th>
+                    <th colspan="3" class="tender__print_th">Факт</th>
+                </tr>
+                <tr class="tender__print_tr">
+                    <th class="tender__print_th">Кол-во</th>
+                    <th class="tender__print_th">Цена</th>
+                    <th class="tender__print_th">Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sp in selected_prices %}
+                    <tr class="tender__print_tr">
+                        <td class="tender__print_td">{{ sp.price.goods.product.name }}</td>
+                        <td class="tender__print_td"></td>
+                        <td class="tender__print_td">{{ sp.quantity }}</td>
+                        <td class="tender__print_td">{{ sp.price.price }}</td>
+                        <td class="price_sum tender__print_td">{{ sp.sum }}</td>
+                    </tr>
+                {% endfor %}
+                <tr class="tender__print_tr">
+                    <td colspan="3" class="tender__print_td"></td>
+                    <td class="my-incidents__cell font-weight-bold tender__print_td">Итого</td>
+                    <td class="my-incidents__cell total_sum tender__print_td"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3">
+        <p class="font-weight-bold mt-5">Примечание:</p>
+    </div>
+    <div class="col-9">
+        <div class="tender__print_comment_line"></div>
+    </div>
+    <div class="col-3 mt-1">
+        <p>Заявитель:</p>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_date_line"></div>
+    </div>
+    <div class="col-5">
+        <div class="tender__print_name_line"></div>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_sign_line"></div>
+    </div>
+    <div class="col-3 mt-1">
+        <p>Подтверждено закуп:</p>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_date_line"></div>
+    </div>
+    <div class="col-5">
+        <div class="tender__print_name_line"></div>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_sign_line"></div>
+    </div>
+    <div class="col-3 mt-1">
+        <p>Подтверждено:</p>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_date_line"></div>
+    </div>
+    <div class="col-5">
+        <div class="tender__print_name_line"></div>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_sign_line"></div>
+    </div>
+    <div class="col-3 mt-1">
+        <p>Выдано:</p>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_date_line"></div>
+    </div>
+    <div class="col-5">
+        <div class="tender__print_name_line"></div>
+    </div>
+    <div class="col-2">
+        <div class="tender__print_sign_line"></div>
+    </div>
+</div>

@@ -245,9 +245,11 @@ def goods_add(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
     products = Product.objects.all().order_by('name')
     participants = Participant.objects.filter(tender_id=tender_id)
+    categories = ProductCategory.objects.all()
     context = {
         'tender': tender,
         'products': products,
+        'categories': categories,
     }
     if request.method == 'POST':
         form = GoodsForm(request.POST)

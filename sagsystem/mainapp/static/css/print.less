@@ -1,0 +1,88 @@
+.tender__print {
+  display: none;
+}
+
+@media print {
+  .incidents {
+    display: none;
+  }
+
+  .tender__print {
+    display: flex;
+
+    &_table {
+      margin-top: 20px;
+      width: 100%;
+      border: 1px solid @black;
+      border-collapse: collapse;
+    }
+    &_thead {
+      background-color: @gray_dark !important;
+      color: @white !important;
+      -webkit-print-color-adjust: exact;
+    }
+    &_tr {
+      border: 1px solid @black;
+    }
+    &_th {
+      border: 1px solid @black;
+    }
+    &_td {
+      border: 1px solid @black;
+    }
+    &_comment_line {
+      width: 600px;
+      height: 70px;
+      border-bottom: 1px solid @black;
+    }
+    &_date_line {
+      width: 100%;
+      height: 30px;
+      border-bottom: 1px solid @black;
+      margin-bottom: 20px;
+      &::after {
+        content: 'Дата';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+      }
+    }
+    &_name_line {
+      width: 100%;
+      height: 30px;
+      border-bottom: 1px solid @black;
+      margin-bottom: 20px;
+    }
+    &_sign_line {
+      width: 100%;
+      height: 30px;
+      border-bottom: 1px solid @black;
+      &::after {
+        content: 'Подпись';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+      }
+    }
+  }
+  .dataframe {
+    margin-top: 20px !important;
+    border: 1px solid @black !important;
+    border-collapse: collapse !important;
+    thead {
+      background-color: @gray_dark !important;
+      -webkit-print-color-adjust: exact !important;
+    }
+    tr {
+      border: 1px solid @black !important;
+    }
+    th {
+      border: 1px solid @black !important;
+    }
+    td {
+      border: 1px solid @black !important;
+    }
+  }
+}

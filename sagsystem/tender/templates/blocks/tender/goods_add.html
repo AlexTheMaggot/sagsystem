@@ -1,7 +1,7 @@
 {% load static %}
 <div class="col-xl-9 block__wrapper tenders-new">
     <div class="block tenders-new__wrapper">
-        <h1 class="tenders-new__title">Добавить товар для участника тендера {{ participant.provider.name }}</h1>
+        <h1 class="tenders-new__title">Добавить товар для участника тендера</h1>
         <form method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ tender.id }}" name="tender" id="tender">
@@ -10,8 +10,13 @@
                     <label class="input-group-text" for="product">Товар</label>
                 </div>
                 <select size="10" class="custom-select" name="product" id="product">
-                    {% for product in products %}
-                        <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% for category in categories %}
+                        <optgroup label="{{ category.name }}" class="goods_add_optgroup" data-option=".goods_add_option_{{ category.id }}"></optgroup>
+                            {% for product in products %}
+                                {% if product.category.id == category.id %}
+                                    <option style="display: none;" value="{{ product.id }}" class="goods_add_option_{{ category.id }}">{{ product.name }}</option>
+                                {% endif %}
+                            {% endfor %}
                     {% endfor %}
                 </select>
             </div>

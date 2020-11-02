@@ -2,7 +2,7 @@
 <div class="col-xl-9 block__wrapper tenders-dashboard">
     <div class="block tenders-dashboard__wrapper">
         <h1 class="tenders-dashboard__title">Мои товары: {{ products.count }}</h1>
-        <a href="add" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <a href="/tender/products/add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -34,7 +34,7 @@
                         {% else %}
                             <td class="my-incidents__cell">Нет описания</td>
                         {% endif %}
-                        <td><a href="{{ product.id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        <td><a href="/tender/products/{{ product.id }}/edit" class="btn btn-warning">Изменить</a></td>
                         <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ product.id }}">Удалить</a></td>
                     </tr>
                 {% endfor %}

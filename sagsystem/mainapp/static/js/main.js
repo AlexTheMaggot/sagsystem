@@ -64,4 +64,20 @@ $(window).on('load', function () {
         $('.total_sum').html(String(total_sum));
     }
     total_sum();
+    $('#tender_print').on('click', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation;
+        window.print()
+    });
+    $('.goods_add_optgroup').on('click', function () {
+        let $this = $(this), option = $($this).data("option");
+        if ($(this).hasClass('goods_opened')) {
+            $(option).css('display', 'none');
+            $(this).removeClass('goods_opened');
+        }
+        else {
+            $(option).css('display', 'block');
+            $(this).addClass('goods_opened');
+        }
+    });
 });

@@ -10,7 +10,7 @@
                 </div>
                 <select size="10" class="custom-select" name="provider" id="provider">
                     {% for provider in providers %}
-                        <option value="{{ provider.id }}">{{ provider.name }}</option>
+                        <option value="{{ provider.id }}">{{ provider.name }}{% if provider.contact %} - {{ provider.contact }}{% endif %}</option>
                     {% endfor %}
                 </select>
             </div>
