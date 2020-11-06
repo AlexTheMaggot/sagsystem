@@ -14,6 +14,7 @@ urlpatterns = [
     path('<int:tender_id>/goods/<int:goods_id>/delete/', views.goods_delete),
     path('<int:tender_id>/prices_edit/', views.prices_edit),
     path('<int:tender_id>/select-winners/', views.select_winners),
+    path('<int:tender_id>/select-winners/edit/', views.select_winners_edit),
     path('<int:tender_id>/delete_selected/', views.select_winners_delete),
     path('products/', views.product_list),
     path('products/category/<int:id>/', views.product_by_category),

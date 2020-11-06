@@ -37,6 +37,7 @@
             <div class="col-12">
                 {% if selected_prices %}
                     <a href="#" class="btn btn-danger d-inline-block mb-4 open-modal_modal" data-modal_modal="#del_selected_{{ tender.id }}">Удалить победителей тендера</a>
+                    <a href="select-winners/edit/" class="btn btn-warning d-inline-block mb-4">Изменить данные</a>
                 {% else %}
                     <a href="select-winners/" class="btn btn-primary d-inline-block mb-4">Указать победителей тендера</a>
                 {% endif %}
@@ -59,8 +60,8 @@
                                     <td class="my-incidents__cell">{{ sp.price.goods.product.name }}</td>
                                     <td class="my-incidents__cell"></td>
                                     <td class="my-incidents__cell">{{ sp.quantity }}</td>
-                                    <td class="my-incidents__cell">{{ sp.price.price }}</td>
-                                    <td class="my-incidents__cell price_sum">{{ sp.sum }}</td>
+                                    <td class="my-incidents__cell locale_string">{{ sp.price.price }}</td>
+                                    <td class="my-incidents__cell locale_string price_sum">{{ sp.sum }}</td>
                                 </tr>
                             {% endfor %}
                             <tr>

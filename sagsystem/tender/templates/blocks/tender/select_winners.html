@@ -9,9 +9,9 @@
                     {% for price in prices %}
                         <div>
                             <label for="winner_{{ price.id }}">{{ price.goods.product.name }}. Цена {{ price.price }}</label>
-                            <input type="radio" name="winner_{{ price.goods.product.id }}" value="winner_{{ price.id }}" id="winner_{{ price.id }}">
+                            <input class="winner__radio_{{ price.id }}" type="radio" name="winner_{{ price.goods.product.id }}" value="winner_{{ price.id }}" id="winner_{{ price.id }}">
                             <label class="d-block" for="quantity_{{ price.id }}">Количество</label>
-                            <input class="form-control mb-4" type="number" name="quantity_{{ price.id }}" id="quantity_{{ price.id }}" value="1">
+                            <input class="winner__number form-control mb-4" type="number" name="quantity_{{ price.id }}" id="quantity_{{ price.id }}" value="1" data-radio=".winner__radio_{{ price.id }}">
                         </div>
                     {% endfor %}
 

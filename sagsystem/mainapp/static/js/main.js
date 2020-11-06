@@ -61,7 +61,7 @@ $(window).on('load', function () {
         $('.price_sum').each(function () {
             total_sum += Number($(this).html());
         });
-        $('.total_sum').html(String(total_sum));
+        $('.total_sum').html(total_sum.toLocaleString());
     }
     total_sum();
     $('#tender_print').on('click', function (e) {
@@ -80,4 +80,18 @@ $(window).on('load', function () {
             $(this).addClass('goods_opened');
         }
     });
+    function to_locale_string(selector) {
+        $(selector).each(function () {
+            let price = Number($(this).html());
+            $(this).html(price.toLocaleString());
+        });
+    }
+    to_locale_string('.locale_string');
+    to_locale_string('.dataframe>tbody>tr>td');
+
+    $('.winner__number').change( function () {
+        let $this = $(this),
+            radio = $($this).data("radio");
+        $(radio).attr('checked', true);
+    })
 });

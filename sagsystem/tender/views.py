@@ -319,3 +319,15 @@ def select_winners_delete(request, tender_id):
     for sw in selected_winners:
         sw.delete()
     return redirect(url)
+
+
+def select_winners_edit(request, tender_id):
+    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
+    tender = Tender.objects.get(id=tender_id)
+    selected_winners = SelectedPrice.objects.filter(tender_id=tender_id)
+    context = {
+        'prices': prices,
+        'tender': tender,
+        'selected_winners': selected_winners,
+    }
+    return render(request, 'tender/select_winners_edit.html', context)
