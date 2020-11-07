@@ -91,7 +91,11 @@ $(window).on('load', function () {
 
     $('.winner__number').change( function () {
         let $this = $(this),
-            radio = $($this).data("radio");
+            radio = $($this).data("radio"),
+            group = $($this).data("group");
+        $(group).each(function () {
+            $(this).attr('checked', false);
+        });
         $(radio).attr('checked', true);
-    })
+    });
 });

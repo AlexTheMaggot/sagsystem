@@ -9,6 +9,8 @@
             <div class="col-xl-4">
                 <h5>Кем создан</h5>
                 <p>{% if tender.creator %}{{ tender.creator.first_name }} {{ tender.creator.last_name }}{% else %}Не указано{% endif %}</p>
+                <h5>Организация</h5>
+                <p>{% if tender.organization %}{{ tender.organization.name }}{% else %}Не указано{% endif %}</p>
                 <h5>Описание</h5>
                 <p>{% if tender.description %}{{ tender.description }}{% else %}Не указано{% endif %}</p>
                 <a href="prices_edit/" class="btn btn-primary d-inline-block mb-4" role="button">Установить цены</a>

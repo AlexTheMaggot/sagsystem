@@ -4,10 +4,15 @@ from django.contrib.auth.models import User
 from django_pandas.managers import DataFrameManager
 
 
+class Organization(models.Model):
+    name = models.CharField(max_length=200)
+
+
 class Tender(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class ProductCategory(models.Model):

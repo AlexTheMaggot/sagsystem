@@ -6,6 +6,20 @@
             {% csrf_token %}
             <label for="name">Название</label>
             <input type="text" class="tenders-new__input form-control" name="name" id="name" value="{{ tender.name }}">
+            <div class="tenders-new__select input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="organization">Организация</label>
+                </div>
+                <select class="custom-select" name="organization" id="organization">
+                    {% for organization in organizations %}
+                        {% if tender.organization.id == organization.id %}
+                            <option value="{{ organization.id }}" selected>{{ organization.name }}</option>
+                        {% else %}
+                            <option value="{{ organization.id }}">{{ organization.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
             <label for="description">Описание</label>
             <textarea name="description" id="description" cols="30" rows="10" class=" form-control tenders-new__textarea">{% if tender.description %}{{ tender.description }}{% endif %}</textarea>
             <input type="hidden" name="creator" id="creator" value="{{ tender.creator.id }}">

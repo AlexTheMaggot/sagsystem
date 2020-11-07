@@ -1,12 +1,12 @@
 from django import forms
 
-from .models import Tender, Product, ProductCategory, Provider, Participant, Goods
+from .models import Tender, Product, ProductCategory, Provider, Participant, Goods, Organization
 
 
 class TenderForm(forms.ModelForm):
     class Meta:
         model = Tender
-        fields = ('name', 'description', 'creator')
+        fields = ('name', 'description', 'creator', 'organization')
 
 
 class ProductForm(forms.ModelForm):
@@ -37,3 +37,9 @@ class GoodsForm(forms.ModelForm):
     class Meta:
         model = Goods
         fields = ('tender', 'product', )
+
+
+class OrganizationForm(forms.ModelForm):
+    class Meta:
+        model = Organization
+        fields = ('name', )

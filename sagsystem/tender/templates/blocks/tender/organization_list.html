@@ -1,0 +1,41 @@
+{% load static %}
+<div class="col-xl-9 block__wrapper tenders-dashboard">
+    <div class="block tenders-dashboard__wrapper">
+        <h1 class="tenders-dashboard__title">Организации: {{ organizations.count }}</h1>
+        <a href="/tender/organizations/add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Название организации</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
+                <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if organizations %}
+                {% for organization in organizations %}
+                    <tr>
+                        <td class="my-incidents__cell">{{ organization.name }}</td>
+                        <td><a href="{{ organization.id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ organization.id }}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Нет данных</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% for organization in organizations %}
+    <div class='modal_modal' id='del_{{ organization.id }}'>
+        <div class='content'>
+            <h1>Подтвердите действие</h1>
+            <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{{ organization.id }}/delete">Подвердить</a>
+            <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ organization.id }}" href="#">Отмена</a>
+        </div>
+    </div>
+{% endfor %}

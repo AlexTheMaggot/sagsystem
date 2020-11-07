@@ -30,6 +30,8 @@ urlpatterns = [
     path('providers/add/', views.provider_add),
     path('providers/<int:id>/delete/', views.provider_delete),
     path('providers/<int:id>/edit/', views.provider_edit),
+    path('organizations/', views.organization_list),
+    path('organizations/add/', views.organization_add),
+    path('organizations/<int:id>/delete/', views.organization_delete),
+    path('organizations/<int:id>/edit/', views.organization_edit),
 ]
-
-

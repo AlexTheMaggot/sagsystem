@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import TenderForm, ProductForm, ProductCategoryForm, ProviderForm, ParticipantForm, GoodsForm
-from .models import Tender, Product, Provider, ProductCategory, Participant, Goods, Price, SelectedPrice
+from .forms import TenderForm, ProductForm, ProductCategoryForm, ProviderForm, ParticipantForm, GoodsForm, OrganizationForm
+from .models import Tender, Product, Provider, ProductCategory, Participant, Goods, Price, SelectedPrice, Organization
 from mainapp.models import Measure
 from django_pandas.io import read_frame
 
@@ -37,13 +37,17 @@ def tender_detail(request, tender_id):
 
 
 def tender_add(request):
+    organizations = Organization.objects.all().order_by('name')
+    context = {
+        'organizations': organizations,
+    }
     if request.method == 'POST':
         form = TenderForm(request.POST)
         if form.is_valid():
             form.save()
             url = '/tender/' + str(form.save().id) + '/'
             return redirect(url)
-    return render(request, 'tender/tender_add.html')
+    return render(request, 'tender/tender_add.html', context)
 
 
 def tender_delete(request, tender_id):
@@ -54,15 +58,17 @@ def tender_delete(request, tender_id):
 
 def tender_edit(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
-
+    organizations = Organization.objects.all().order_by('name')
     if request.method == 'POST':
         form = TenderForm(request.POST, instance=tender)
         if form.is_valid():
             form.save()
-            return redirect('/tender/')
+            url = '/tender/' + str(form.save().id) + '/'
+            return redirect(url)
 
     context = {
         'tender': tender,
+        'organizations': organizations,
     }
     return render(request, 'tender/tender_edit.html', context)
 
@@ -205,7 +211,7 @@ def provider_edit(request, id):
         form = ProviderForm(request.POST, instance=provider)
         if form.is_valid():
             form.save()
-            return redirect('/tender/providers')
+            return redirect('/tender/providers/')
 
     context = {
         'provider': provider,
@@ -331,3 +337,41 @@ def select_winners_edit(request, tender_id):
         'selected_winners': selected_winners,
     }
     return render(request, 'tender/select_winners_edit.html', context)
+
+
+def organization_list(request):
+    organizations = Organization.objects.all().order_by('name')
+    context = {
+        'organizations': organizations,
+    }
+    return render(request, 'tender/organization_list.html', context)
+
+
+def organization_add(request):
+    if request.method == 'POST':
+        form = OrganizationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/tender/organizations/')
+    return render(request, 'tender/organization_add.html')
+
+
+def organization_delete(request, id):
+    organization = get_object_or_404(Organization, id=id)
+    organization.delete()
+    return redirect('/tender/organizations/')
+
+
+def organization_edit(request, id):
+    organization = get_object_or_404(Organization, id=id)
+
+    if request.method == 'POST':
+        form = OrganizationForm(request.POST, instance=organization)
+        if form.is_valid():
+            form.save()
+            return redirect('/tender/organizations/')
+
+    context = {
+        'organization': organization,
+    }
+    return render(request, 'tender/organization_edit.html', context)
