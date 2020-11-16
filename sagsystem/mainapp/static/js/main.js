@@ -98,4 +98,9 @@ $(window).on('load', function () {
         });
         $(radio).attr('checked', true);
     });
+    $('.tender__print>.col-12>.dataframe>thead').addClass('dataframe__thead');
+    $('.tender__print>.col-12>.dataframe').removeClass('table').removeClass('table-striped')
+    $('.tender__print>.col-12>.dataframe>tbody>tr>th').each(function () {
+        $(this).css('color', '#000000')
+    })
 });

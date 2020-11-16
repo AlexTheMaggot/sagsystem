@@ -19,6 +19,8 @@ def tender_detail(request, tender_id):
     goods = Goods.objects.all().filter(tender_id__exact=tender_id)
     prices = Price.objects.filter(tender_id=tender_id)
     selected_prices = SelectedPrice.objects.filter(tender_id=tender_id)
+
+
     context = {
         'tender': tender,
         'participants': participants,
@@ -303,8 +305,6 @@ def select_winners(request, tender_id):
         'tender': tender,
     }
     if request.method == 'POST':
-
-        print(request.POST)
         for p in prices:
             winner = 'winner_' + str(p.goods.product.id)
             winner_price = 'winner_' + str(p.id)
@@ -315,7 +315,6 @@ def select_winners(request, tender_id):
                     add = SelectedPrice(tender_id=tender_id, price_id=p.id, quantity=request.POST[quantity], sum=sum)
                     add.save()
         return redirect('/tender/' + str(tender_id) + '/')
-
     return render(request, 'tender/select_winners.html', context)
 
 
@@ -336,6 +335,19 @@ def select_winners_edit(request, tender_id):
         'tender': tender,
         'selected_winners': selected_winners,
     }
+    if request.method == 'POST':
+        for sw in selected_winners:
+            sw.delete()
+        for p in prices:
+            winner = 'winner_' + str(p.goods.product.id)
+            winner_price = 'winner_' + str(p.id)
+            quantity = 'quantity_' + str(p.id)
+            if winner in request.POST:
+                if winner_price in request.POST[winner]:
+                    sum = int(p.price) * int(request.POST[quantity])
+                    add = SelectedPrice(tender_id=tender_id, price_id=p.id, quantity=request.POST[quantity], sum=sum)
+                    add.save()
+        return redirect('/tender/' + str(tender_id) + '/')
     return render(request, 'tender/select_winners_edit.html', context)
 
 

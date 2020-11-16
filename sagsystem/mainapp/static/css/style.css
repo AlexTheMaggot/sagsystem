@@ -97,19 +97,24 @@
     margin-top: 20px !important;
     border: 1px solid #000000 !important;
     border-collapse: collapse !important;
+    color: #FFFFFF;
+    width: 100%;
   }
-  .dataframe thead {
-    background-color: #404040 !important;
+  .dataframe__thead {
+    background: #404040 !important;
     -webkit-print-color-adjust: exact !important;
   }
   .dataframe tr {
     border: 1px solid #000000 !important;
   }
   .dataframe th {
+    padding: 0 10px;
     border: 1px solid #000000 !important;
   }
   .dataframe td {
     border: 1px solid #000000 !important;
+    padding: 0 10px;
+    color: #000000;
   }
 }
 /* End Modules */

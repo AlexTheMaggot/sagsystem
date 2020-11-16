@@ -6,6 +6,8 @@
             {% csrf_token %}
             <label for="name">Название</label>
             <input type="text" class="tenders-new__input form-control" name="name" id="name" value="{{ tender.name }}">
+            <label for="number">Номер тендера</label>
+            <input type="text" class="tenders-new__input form-control" name="number" id="number" value="{{ tender.number }}">
             <div class="tenders-new__select input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="organization">Организация</label>

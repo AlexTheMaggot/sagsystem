@@ -6,7 +6,7 @@ from .models import Tender, Product, ProductCategory, Provider, Participant, Goo
 class TenderForm(forms.ModelForm):
     class Meta:
         model = Tender
-        fields = ('name', 'description', 'creator', 'organization')
+        fields = ('name', 'number', 'description', 'creator', 'organization')
 
 
 class ProductForm(forms.ModelForm):

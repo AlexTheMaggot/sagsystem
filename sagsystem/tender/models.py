@@ -10,6 +10,7 @@ class Organization(models.Model):
 
 class Tender(models.Model):
     name = models.CharField(max_length=200)
+    number = models.IntegerField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)

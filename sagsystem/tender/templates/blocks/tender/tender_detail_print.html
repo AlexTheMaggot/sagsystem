@@ -6,6 +6,21 @@
         </div>
     </div>
     <div class="col-12">
+        {% if tender.creator.id == 7 %}
+            <h3 class="text-center">Тендер № S_{{ tender.number }}</h3>
+        {% elif tender.creator.id == 8 %}
+            <h3 class="text-center">Тендер № NO_{{ tender.number }}</h3>
+        {% elif tender.creator.id == 9 %}
+            <h3 class="text-center">Тендер № M_{{ tender.number</h3>
+        {% elif tender.creator.id == 10 %}
+            <h3 class="text-center">Тендер № Sh_{{ tender.number }}</h3>
+        {% elif tender.creator.id == 11 %}
+            <h3 class="text-center">Тендер № O_{{ tender.number }}</h3>
+        {% elif tender.creator.id == 12 %}
+            <h3 class="text-center">Тендер № Z_{{ tender.number }}</h3>
+        {% endif %}
+    </div>
+    <div class="col-12">
         {{ table|safe }}
     </div>
     <div class="col-12">
