@@ -3,7 +3,7 @@
     <div class="block tenders-dashboard__wrapper">
         <h1 class="tenders-dashboard__title">Мои поставщики: {{ providers.count }}</h1>
         <a href="/tender/providers/add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
-        <table class="table table-striped">
+        <table class="table table-striped" id="datatable">
             <thead>
             <tr>
                 <th scope="col">Название организации</th>
