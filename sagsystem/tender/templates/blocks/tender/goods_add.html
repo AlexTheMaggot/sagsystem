@@ -9,7 +9,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="product">Товар</label>
                 </div>
-                <select size="10" class="custom-select" name="product" id="product">
+                <select size="10" class="custom-select js-select2" name="product" id="product">
                     {% for category in categories %}
                         <optgroup label="{{ category.name }}" class="goods_add_optgroup" data-option=".goods_add_option_{{ category.id }}"></optgroup>
                             {% for product in products %}

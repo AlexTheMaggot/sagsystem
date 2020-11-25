@@ -8,7 +8,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="provider">Поставщик</label>
                 </div>
-                <select size="10" class="custom-select" name="provider" id="provider">
+                <select size="10" class="custom-select js-select2" name="provider" id="provider">
                     {% for provider in providers %}
                         <option value="{{ provider.id }}">{{ provider.name }}{% if provider.contact %} - {{ provider.contact }}{% endif %}</option>
                     {% endfor %}

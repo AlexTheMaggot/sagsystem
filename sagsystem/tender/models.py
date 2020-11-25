@@ -14,6 +14,7 @@ class Tender(models.Model):
     description = models.TextField(null=True, blank=True)
     creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
 class ProductCategory(models.Model):

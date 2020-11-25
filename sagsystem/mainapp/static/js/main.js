@@ -104,4 +104,9 @@ $(window).on('load', function () {
         $(this).css('color', '#000000');
     });
     $('#datatable').dataTable();
+    $('.js-select2').select2({
+        placeholder: "Введите название...",
+		maximumSelectionLength: 2,
+		language: "ru"
+    })
 });
