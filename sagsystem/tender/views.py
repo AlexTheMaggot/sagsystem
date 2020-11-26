@@ -298,7 +298,7 @@ def prices_edit(request, tender_id):
 
 
 def select_winners(request, tender_id):
-    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
+    prices = Price.objects.filter(tender_id=tender_id).order_by('participant')
     tender = Tender.objects.get(id=tender_id)
     context = {
         'prices': prices,
