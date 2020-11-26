@@ -7,7 +7,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     {% for price in prices %}
-                        <label for="{{ price.id }}">{{ price.goods.product.name }} от {{ price.participant.provider.name }}</label>
+                        <label for="{{ price.id }}">{{ price.participant.provider.name }} - <b>{{ price.goods.product.name }}</b></label>
                         <input type="number" id="{{ price.id }}" name="{{ price.id }}" value="{{ price.price }}" class="form-control mb-4">
                     {% endfor %}
 

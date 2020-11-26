@@ -281,7 +281,7 @@ def goods_delete(request, tender_id, goods_id):
 
 def prices_edit(request, tender_id):
     tender = Tender.objects.get(id=tender_id)
-    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
+    prices = Price.objects.filter(tender_id=tender_id).order_by('participant')
     context = {
         'prices': prices,
         'tender': tender,
