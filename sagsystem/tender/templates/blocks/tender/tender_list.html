@@ -3,12 +3,12 @@
     <div class="block tenders-dashboard__wrapper">
         <h1 class="tenders-dashboard__title">Мои Тендеры: {{ tenders.count }}</h1>
         <a href="/tender/add/" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
-        <table class="table table-striped">
+        <table class="table table-striped" id="datatable">
             <thead>
             <tr>
-                <th scope="col">Название</th>
                 <th scope="col">Номер</th>
                 <th scope="col">Дата</th>
+                <th scope="col">Название</th>
                 <th scope="col">Организация</th>
                 <th scope="col">Кем создан</th>
                 <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
@@ -19,9 +19,9 @@
             {% if tenders %}
                 {% for tender in tenders %}
                     <tr>
-                        <td class="my-incidents__cell"><a href="{{ tender.id }}/">{{ tender.name }}</a></td>
                         <td class="my-incidents__cell">{% if tender.creator.id == 7 %}S_{{ tender.number }}{% elif tender.creator.id == 8 %}NO_{{ tender.number }}{% elif tender.creator.id == 9 %}M_{{ tender.number}}{% elif tender.creator.id == 10 %}Sh_{{ tender.number }}{% elif tender.creator.id == 11 %}O_{{ tender.number }}{% elif tender.creator.id == 12 %}Z_{{ tender.number }}{% endif %}</td>
                         <td class="my-incidents__cell">{{ tender.date|date:'d E Y' }}</td>
+                        <td class="my-incidents__cell"><a href="{{ tender.id }}/">{{ tender.name }}</a></td>
                         <td class="my-incidents__cell">{{ tender.organization.name }}</td>
                         <td class="my-incidents__cell">{% if tender.creator %}{{ tender.creator.first_name }} {{ tender.creator.last_name }}{% else %}Не указано{% endif %}</td>
                         <td>{% if request.user.id == tender.creator.id %}<a href="{{ tender.id }}/edit/" class="btn btn-warning">Изменить</a>{% endif %}</td>

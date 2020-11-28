@@ -46,6 +46,7 @@ def tender_add(request):
     if request.method == 'POST':
         form = TenderForm(request.POST)
         if form.is_valid():
+
             form.save()
             url = '/tender/' + str(form.save().id) + '/'
             return redirect(url)
@@ -231,13 +232,18 @@ def participant_add(request, tender_id):
     }
     if request.method == 'POST':
         form = ParticipantForm(request.POST)
+        print(request.POST)
         if form.is_valid():
             form.save()
             for g in goods:
                 price = Price.objects.create(tender_id=g.tender_id, goods_id=g.id, participant_id=form.save().id,
                                              price=0)
             url = '/tender/' + str(tender.id) + '/'
-            return redirect(url)
+            add_another = '/tender/' + str(tender.id) + '/participant_add/'
+            if 'save' in request.POST:
+                return redirect(url)
+            elif 'add_another' in request.POST:
+                return redirect(add_another)
     return render(request, 'tender/participant_add.html', context)
 
 
@@ -267,6 +273,11 @@ def goods_add(request, tender_id):
                 price = Price.objects.create(tender_id=p.tender_id, participant_id=p.id, goods_id=form.save().id,
                                              price=0)
             url = '/tender/' + str(tender.id) + '/'
+            add_another = '/tender/' + str(tender.id) + '/goods_add/'
+            if 'save' in request.POST:
+                return redirect(url)
+            elif 'add_another' in request.POST:
+                return redirect(add_another)
             return redirect(url)
     return render(request, 'tender/goods_add.html', context)
 

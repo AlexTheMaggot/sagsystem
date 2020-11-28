@@ -15,7 +15,8 @@
                 </select>
             </div>
             <input type="hidden" name="tender" id="tender" value="{{ tender.id }}">
-            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product" name="save">
+            <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить и добавить еще" id="add_product" name="add_another">
             <a href="/tender/{{ tender.id }}/" class="tenders-new__button btn btn-dark">Отмена</a>
         </form>
     </div>
