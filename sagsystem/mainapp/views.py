@@ -7,7 +7,7 @@ from .models import Measure
 
 def index(request):
     if request.user.is_authenticated:
-        return redirect('/tender/products/')
+        return redirect('/tender/')
     else:
         return redirect('/auth')
 

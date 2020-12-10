@@ -5,7 +5,7 @@
         <form method="POST">
             {% csrf_token %}
             <label for="name">Название</label>
-            <input type="text" class="tenders-new__input form-control" name="name" id="name">
+            <input required type="text" class="tenders-new__input form-control" name="name" id="name">
             <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
             <a href="/tender/organizations/" class="tenders-new__button btn btn-dark">Отмена</a>
         </form>

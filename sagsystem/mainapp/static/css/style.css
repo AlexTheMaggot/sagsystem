@@ -62,6 +62,7 @@
   .tender__print_comment_line {
     width: 600px;
     height: 70px;
+    padding-top: 45px;
     border-bottom: 1px solid #000000;
   }
   .tender__print_date_line {
@@ -152,6 +153,24 @@
 .menu__wrapper {
   padding: 10px;
 }
+.menu__ul {
+  padding: 0;
+  list-style-type: none;
+}
+.menu__link {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  background: #808080;
+  color: #FFFFFF;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.menu__link:hover {
+  color: #FFFFFF;
+  background: #404040;
+  text-decoration: none;
+}
 .my-incidents__wrapper {
   padding: 10px;
 }
@@ -177,6 +196,25 @@
 }
 .tenders-dashboard__buttoncell {
   width: 100px;
+}
+.tender-status__wrapper {
+  background: #808080;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+.tender-status__wrapper_true {
+  background: #28A745;
+}
+.tender-status__wrapper_false {
+  background: #DC3545;
+}
+.tender-status__wrapper_null {
+  background: #FFC107;
+}
+.tender-status__text {
+  color: #FFFFFF;
+  margin: 0;
 }
 .tenders-new__title {
   margin-bottom: 40px;
@@ -211,6 +249,9 @@
 }
 .block__wrapper {
   padding: 0;
+}
+textarea {
+  resize: none;
 }
 /* End Global Styles */
 /*# sourceMappingURL=style.css.map */

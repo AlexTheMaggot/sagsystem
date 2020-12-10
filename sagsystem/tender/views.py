@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TenderForm, ProductForm, ProductCategoryForm, ProviderForm, ParticipantForm, GoodsForm, OrganizationForm
 from .models import Tender, Product, Provider, ProductCategory, Participant, Goods, Price, SelectedPrice, Organization
@@ -13,12 +14,36 @@ def tender_list(request):
     return render(request, 'tender/tender_list.html', context)
 
 
+def tender_cfo_true(request):
+    tenders = Tender.objects.filter(cfo_confirm__exact=True)
+    context = {
+        'tenders': tenders,
+    }
+    return render(request, 'tender/tender_list.html', context)
+
+
+def tender_cfo_false(request):
+    tenders = Tender.objects.filter(cfo_confirm__exact=False)
+    context = {
+        'tenders': tenders,
+    }
+    return render(request, 'tender/tender_list.html', context)
+
+
+def tender_cfo_null(request):
+    tenders = Tender.objects.filter(cfo_confirm__exact=None)
+    context = {
+        'tenders': tenders,
+    }
+    return render(request, 'tender/tender_list.html', context)
+
+
 def tender_detail(request, tender_id):
     tender = get_object_or_404(Tender, id=tender_id)
-    participants = Participant.objects.all().filter(tender_id__exact=tender_id)
-    goods = Goods.objects.all().filter(tender_id__exact=tender_id)
+    participants = Participant.objects.all().filter(tender_id__exact=tender_id).order_by('provider__name')
+    goods = Goods.objects.all().filter(tender_id__exact=tender_id).order_by('product__name')
     prices = Price.objects.filter(tender_id=tender_id)
-    selected_prices = SelectedPrice.objects.filter(tender_id=tender_id)
+    selected_prices = SelectedPrice.objects.filter(tender_id=tender_id).order_by('price__goods__product__name')
 
 
     context = {
@@ -74,6 +99,49 @@ def tender_edit(request, tender_id):
         'organizations': organizations,
     }
     return render(request, 'tender/tender_edit.html', context)
+
+
+def tender_cpo_confirm(request, tender_id):
+    tender = get_object_or_404(Tender, id=tender_id)
+    url = '/tender/' + str(tender.id) + '/'
+    if request.user.id == 8:
+        tender.cpo_confirm = True
+        time = datetime.datetime.now()
+        tender.cpo_confirm_date = time
+        tender.save()
+    return redirect(url)
+
+
+def tender_cfo_confirm(request, tender_id):
+    tender = get_object_or_404(Tender, id=tender_id)
+    url = '/tender/' + str(tender.id) + '/'
+    if request.user.id == 13:
+        tender.cfo_confirm = True
+        tender.cfo_confirm_date = datetime.datetime.now()
+        tender.save()
+    return redirect(url)
+
+
+def tender_cpo_reject(request, tender_id):
+    tender = get_object_or_404(Tender, id=tender_id)
+    url = '/tender/' + str(tender.id) + '/'
+    if request.method == 'POST' and request.user.id == 8:
+        tender.cpo_confirm = False
+        tender.cpo_comment = request.POST['text']
+        tender.cpo_confirm_date = datetime.datetime.now()
+        tender.save()
+    return redirect(url)
+
+
+def tender_cfo_reject(request, tender_id):
+    tender = get_object_or_404(Tender, id=tender_id)
+    url = '/tender/' + str(tender.id) + '/'
+    if request.method == 'POST' and request.user.id == 13:
+        tender.cfo_confirm = False
+        tender.cfo_comment = request.POST['text']
+        tender.cfo_confirm_date = datetime.datetime.now()
+        tender.save()
+    return redirect(url)
 
 
 def product_list(request):
@@ -232,7 +300,6 @@ def participant_add(request, tender_id):
     }
     if request.method == 'POST':
         form = ParticipantForm(request.POST)
-        print(request.POST)
         if form.is_valid():
             form.save()
             for g in goods:
@@ -309,7 +376,7 @@ def prices_edit(request, tender_id):
 
 
 def select_winners(request, tender_id):
-    prices = Price.objects.filter(tender_id=tender_id).order_by('participant')
+    prices = Price.objects.filter(tender_id=tender_id).order_by('goods')
     tender = Tender.objects.get(id=tender_id)
     context = {
         'prices': prices,

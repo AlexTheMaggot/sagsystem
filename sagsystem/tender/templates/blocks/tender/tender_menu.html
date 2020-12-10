@@ -1,23 +1,67 @@
 <div class="col-xl-3 block__wrapper menu">
     <div class="block menu__wrapper">
         <h1 class="menu__title">Меню</h1>
-        <nav>
-            <ul>
-                <li><a href="/tender/">Тендеры</a></li>
-                <li><a href="/tender/organizations/">Организации</a></li>
-                <li><a href="/tender/products/">Товары</a></li>
-                <li><a href="/tender/product-category/">Категории товаров</a></li>
-                <li><a href="/tender/providers/">Поставщики</a></li>
-                <li><a href="/measures/">Единицы измерения</a></li>
-            </ul>
-        </nav>
+        {% if request.user.id == 13 %}
+            <nav class="menu__nav">
+                <ul class="menu__ul">
+                    <li class="menu__li"><a class="menu__link" href="/tender/">Все тендеры</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/cfo_null/">Не подтвержденные</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/cfo_true/">Подтвержденные</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/cfo_false/">Отклоненные</a></li>
+                </ul>
+            </nav>
+        {% else %}
+            <nav class="menu__nav">
+                <ul class="menu__ul">
+                    <li class="menu__li"><a class="menu__link" href="/tender/">Тендеры</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/organizations/">Организации</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/products/">Товары</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/product-category/">Категории товаров</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/tender/providers/">Поставщики</a></li>
+                    <li class="menu__li"><a class="menu__link" href="/measures/">Единицы измерения</a></li>
+                </ul>
+            </nav>
+        {% endif %}
         {% if 'tender/products' in request.path %}
             <h1>Категории</h1>
-            <ul>
-                {% for category in categories %}
-                    <li><a href="/tender/products/category/{{ category.id }}/">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
+            <nav class="menu__nav">
+                <ul class="menu__ul">
+                    {% for category in categories %}
+                        <li class="menu__li"><a class="menu__link" href="/tender/products/category/{{ category.id }}/">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
+        {% if tender.id %}
+            <h1>Статус тендера</h1>
+            {% if tender.cpo_confirm == True %}
+                <div class="tender-status__wrapper tender-status__wrapper_true">
+                    <p class="tender-status__text">Подтвержден начальником отдела снабжения - {{ tender.cpo_confirm_date|date:'d.m.Y H:i' }}</p>
+                </div>
+                {% elif tender.cpo_confirm == False %}
+                    <div class="tender-status__wrapper tender-status__wrapper_false">
+                        <p class="tender-status__text">Не подтвержден начальником отдела снабжения - {{ tender.cpo_confirm_date|date:'d.m.Y H:i' }}</p>
+                        <p class="tender-status__text">Причина: {% if tender.cpo_comment %}{{ tender.cpo_comment }}{% else %}Нет{% endif %}</p>
+                    </div>
+                {% else %}
+                    <div class="tender-status__wrapper tender-status__wrapper_null">
+                        <p class="tender-status__text">Ожидает подтверждения начальником отдела снабжения</p>
+                    </div>
+                {% endif %}
+                {% if tender.cfo_confirm == True %}
+                    <div class="tender-status__wrapper tender-status__wrapper_true">
+                        <p class="tender-status__text">Подтвержден финансовым отделом - {{ tender.cfo_confirm_date|date:'d.m.Y H:i' }}</p>
+                    </div>
+                {% elif tender.cfo_confirm == False %}
+                    <div class="tender-status__wrapper tender-status__wrapper_false">
+                        <p class="tender-status__text">Не подтвержден финансовым отделом - {{ tender.cfo_confirm_date|date:'d.m.Y H:i' }}</p>
+                        <p class="tender-status__text">Причина: {% if tender.cfo_comment %}{{ tender.cfo_comment }}{% else %}Нет{% endif %}</p>
+                    </div>
+                {% else %}
+                    <div class="tender-status__wrapper tender-status__wrapper_null">
+                        <p class="tender-status__text">Ожидает подтверждения финансовым отделом</p>
+                    </div>
+                {% endif %}
         {% endif %}
     </div>
 </div>

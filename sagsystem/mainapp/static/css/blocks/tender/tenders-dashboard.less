@@ -13,3 +13,25 @@
     width: 100px;
   }
 }
+
+.tender-status {
+  &__wrapper {
+    background: @gray;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 10px;
+    &_true {
+      background: @success;
+    }
+    &_false {
+      background: @danger;
+    }
+    &_null {
+      background: @warning;
+    }
+  }
+  &__text {
+    color: @white;
+    margin: 0;
+  }
+}

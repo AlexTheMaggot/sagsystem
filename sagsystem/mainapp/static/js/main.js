@@ -42,11 +42,7 @@ $(window).on('load', function () {
             $(modal_modal).parents(".overlay").removeClass("open");
         }, 350);
     });
-    $('#add_product').on('click', function (e) {
-        if ($('.tenders-new__input').val() === '') {
-            e.preventDefault();
-        }
-    });
+
     $('.dataframe>thead>tr:first-child>th:first-child').html('Участник тендера').addClass('text-left');
     $('.dataframe>thead>tr:last-child>th:first-child').html('Товар');
 
@@ -107,6 +103,6 @@ $(window).on('load', function () {
     $('.js-select2').select2({
         placeholder: "Введите название...",
 		maximumSelectionLength: 2,
-		language: "ru"
-    })
+		language: "ru",
+    });
 });

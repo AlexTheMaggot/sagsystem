@@ -8,7 +8,7 @@
                     {% csrf_token %}
                     {% for price in prices %}
                         <div>
-                            <label for="winner_{{ price.id }}">{{ price.participant.provider.name }} - <b>{{ price.goods.product.name }}</b> - {{ price.price }}</label>
+                            <label for="winner_{{ price.id }}"><b>{{ price.goods.product.name }}</b> - {{ price.participant.provider.name }} - {{ price.price }}</label>
                             <input class="winner__radio_{{ price.id }} winner__group_{{ price.goods.product.id }}" type="radio" name="winner_{{ price.goods.product.id }}" value="winner_{{ price.id }}" id="winner_{{ price.id }}">
                             <label class="d-block" for="quantity_{{ price.id }}">Количество</label>
                             <input class="winner__number form-control mb-4" type="number" name="quantity_{{ price.id }}" id="quantity_{{ price.id }}" value="0" data-radio=".winner__radio_{{ price.id }}" data-group=".winner__group_{{ price.goods.product.id }}">

@@ -10,11 +10,17 @@ class Organization(models.Model):
 
 class Tender(models.Model):
     name = models.CharField(max_length=200)
-    number = models.IntegerField(null=True, blank=True, unique=True)
+    number = models.IntegerField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    cpo_confirm = models.BooleanField(null=True, blank=True)
+    cpo_confirm_date = models.DateTimeField(null=True, blank=True)
+    cpo_comment = models.TextField(null=True, blank=True)
+    cfo_confirm = models.BooleanField(null=True, blank=True)
+    cfo_confirm_date = models.DateTimeField(null=True, blank=True)
+    cfo_comment = models.TextField(null=True, blank=True)
 
 
 class ProductCategory(models.Model):
@@ -62,3 +68,10 @@ class SelectedPrice(models.Model):
     price = models.ForeignKey(Price, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     sum = models.IntegerField()
+
+
+class Comment(models.Model):
+    tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)

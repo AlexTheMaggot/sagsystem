@@ -9,11 +9,11 @@
             {% csrf_token %}
             <div class="auth__input form-group">
                 <label class="auth__label" for="id_username">Имя пользователя</label>
-                <input class="form-control" type="text" name="username" id="id_username">
+                <input required class="form-control" type="text" name="username" id="id_username">
             </div>
             <div class="auth__input form-group">
                 <label class="auth__label" for="id_password">Пароль</label>
-                <input class="form-control" type="password" name="password" id="id_password">
+                <input required class="form-control" type="password" name="password" id="id_password">
             </div>
             <input class="auth__btn btn btn-success" type="submit">
         </form>

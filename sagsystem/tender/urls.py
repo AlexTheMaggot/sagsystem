@@ -4,6 +4,9 @@ from . import views
 
 urlpatterns = [
     path('', views.tender_list),
+    path('cfo_true/', views.tender_cfo_true),
+    path('cfo_false/', views.tender_cfo_false),
+    path('cfo_null/', views.tender_cfo_null),
     path('<int:tender_id>/', views.tender_detail),
     path('add/', views.tender_add),
     path('<int:tender_id>/delete/', views.tender_delete),
@@ -16,6 +19,10 @@ urlpatterns = [
     path('<int:tender_id>/select-winners/', views.select_winners),
     path('<int:tender_id>/select-winners/edit/', views.select_winners_edit),
     path('<int:tender_id>/delete_selected/', views.select_winners_delete),
+    path('<int:tender_id>/cpo_confirm/', views.tender_cpo_confirm),
+    path('<int:tender_id>/cpo_reject/', views.tender_cpo_reject),
+    path('<int:tender_id>/cfo_confirm/', views.tender_cfo_confirm),
+    path('<int:tender_id>/cfo_reject/', views.tender_cfo_reject),
     path('products/', views.product_list),
     path('products/category/<int:id>/', views.product_by_category),
     path('products/add/', views.product_add),
