@@ -2,39 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc626895-99b2-4c88-a391-294a5fc9366f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/tender/migrations/0022_auto_20201127_0958.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/tender/migrations/0023_auto_20201130_1718.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/tender/migrations/0025_auto_20201205_1213.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6defcc63-430a-4449-956c-e4184a7f0e3d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6defcc63-430a-4449-956c-e4184a7f0e3d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sagsystem/db_123.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/menu.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/menu.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/tender/tenders-dashboard.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/tender/tenders-dashboard.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/colors.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/colors.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/print.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/print.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/templates/blocks/mainapp/measures_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/blocks/mainapp/measures_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/templates/mainapp/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/mainapp/auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/organization_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/organization_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/product_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/product_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/product_category_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/product_category_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/provider_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/provider_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/select_winners.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/select_winners.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail_print.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail_print.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sagsystem/tender/migrations/0022_auto_20201127_0958.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sagsystem/tender/migrations/0023_auto_20201130_1718.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sagsystem/tender/migrations/0024_auto_20201203_1548.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sagsystem/tender/migrations/0025_auto_20201205_1213.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,16 +36,12 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db [3]" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db [3]" type="feb32156:DbDataSourceImpl" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db [3]" type="feb32156:DbDataSourceImpl" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
@@ -116,12 +88,17 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6cbabd38" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e595ce" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6cbabd38" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4c1ecec8" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e595ce" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1df574c9" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e595ce" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7ad941e4" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -153,7 +130,7 @@
       <workItem from="1607152025124" duration="9833000" />
       <workItem from="1607322056277" duration="14531000" />
       <workItem from="1607492493285" duration="13419000" />
-      <workItem from="1607576943348" duration="1811000" />
+      <workItem from="1607576943348" duration="6669000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1606566935289</created>
@@ -169,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607579176498</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix">
+      <created>1607580911843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607580911843</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
