@@ -58,7 +58,7 @@ class Price(models.Model):
     tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
-    price = models.IntegerField(null=True, blank=True)
+    price = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
 
     objects = DataFrameManager()
 
@@ -66,8 +66,8 @@ class Price(models.Model):
 class SelectedPrice(models.Model):
     tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
     price = models.ForeignKey(Price, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    sum = models.IntegerField()
+    quantity = models.DecimalField(max_digits=12, decimal_places=2)
+    sum = models.DecimalField(max_digits=12, decimal_places=2)
 
 
 class Comment(models.Model):

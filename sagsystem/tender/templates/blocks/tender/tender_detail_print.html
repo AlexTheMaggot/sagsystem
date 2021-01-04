@@ -88,7 +88,7 @@
         <div class="tender__print_name_line"></div>
     </div>
     <div class="col-2">
-        <div class="tender__print_sign_line"></div>
+        <div class="tender__print_sign_line">{% if tender.cpo_confirm == True %}<b>Подтверждено</b>{% endif %}</div>
     </div>
     <div class="col-3 mt-1">
         <p>Подтверждено:</p>
@@ -100,7 +100,7 @@
         <div class="tender__print_name_line"></div>
     </div>
     <div class="col-2">
-        <div class="tender__print_sign_line"></div>
+        <div class="tender__print_sign_line">{% if tender.cfo_confirm == True %}<b>Подтверждено</b>{% endif %}</div>
     </div>
     <div class="col-3 mt-1">
         <p>Выдано:</p>

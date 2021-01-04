@@ -55,9 +55,10 @@ $(window).on('load', function () {
     function total_sum() {
         let total_sum = 0;
         $('.price_sum').each(function () {
-            total_sum += Number($(this).html());
+            foo = $(this).html().replace(',', '.');
+            total_sum += parseFloat(foo);
         });
-        $('.total_sum').html(total_sum.toLocaleString());
+        $('.total_sum').html(total_sum);
     }
     total_sum();
     $('#tender_print').on('click', function (e) {
@@ -82,8 +83,8 @@ $(window).on('load', function () {
             $(this).html(price.toLocaleString());
         });
     }
-    to_locale_string('.locale_string');
-    to_locale_string('.dataframe>tbody>tr>td');
+    // to_locale_string('.locale_string');
+    // to_locale_string('.dataframe>tbody>tr>td');
 
     $('.winner__number').change( function () {
         let $this = $(this),

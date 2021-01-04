@@ -9,7 +9,7 @@ def index(request):
     if request.user.is_authenticated:
         return redirect('/tender/')
     else:
-        return redirect('/auth')
+        return redirect('/auth/')
 
 
 def workers_list(request):
