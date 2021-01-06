@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc626895-99b2-4c88-a391-294a5fc9366f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sagsystem/tender/migrations/0023_auto_20210104_1550.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/tender/migrations/0024_auto_20210104_1615.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6defcc63-430a-4449-956c-e4184a7f0e3d.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b100b878-32c0-4cf8-bc3c-f4915adfeb7c.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/db_123.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/prices_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/prices_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/select_winners.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/select_winners.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail_print.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/templates/blocks/tender/tender_detail_print.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/tender/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/tender/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,12 +90,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29cbd9ef" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@52aa57bb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29cbd9ef" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2edd8771" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@52aa57bb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@69c379b2" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -143,7 +131,8 @@
       <workItem from="1607678487133" duration="6405000" />
       <workItem from="1607945240306" duration="1233000" />
       <workItem from="1608013641111" duration="1374000" />
-      <workItem from="1609742527722" duration="12168000" />
+      <workItem from="1609742527722" duration="13274000" />
+      <workItem from="1609927013819" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1606566935289</created>
@@ -180,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607597989356</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix">
+      <created>1609761081210</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609761081211</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
