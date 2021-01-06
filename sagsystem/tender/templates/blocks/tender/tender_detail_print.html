@@ -18,6 +18,8 @@
             <h3 class="text-center">Тендер № O_{{ tender.number }} от {{ tender.date|date:'d E Y' }} г.</h3>
         {% elif tender.creator.id == 12 %}
             <h3 class="text-center">Тендер № Z_{{ tender.number }} от {{ tender.date|date:'d E Y' }} г.</h3>
+        {% elif tender.creator.id == 14 %}
+            <h3 class="text-center">Тендер № F_{{ tender.number }} от {{ tender.date|date:'d E Y' }} г.</h3>
         {% endif %}
         {% if tender.organization %}
             <h3>Организация: {{ tender.organization.name }}</h3>
