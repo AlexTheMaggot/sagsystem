@@ -1,0 +1,14 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Доступ запрещен{% endblock %}
+{% block content %}
+<div class="row align-items-center auth">
+    <div class="col-xl-4 offset-xl-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-12 auth__col">
+        <h1 class="auth__title">Доступ запрещен</h1>
+        <h5 class="text-center mt-4">У вас нет права на доступ в этот раздел</h5>
+        <div class="text-center mt-5">
+            <a href="{% url 'mainapp:index' %}" class="btn btn-success">На главную</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

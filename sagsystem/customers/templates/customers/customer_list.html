@@ -1,0 +1,57 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}База клиентов - Sagsystem{% endblock %}
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'customers/blocks/menu.html' %}
+        <div class="col-xl-9 block__wrapper tenders-dashboard">
+            <div class="block tenders-dashboard__wrapper">
+                <h1 class="tenders-dashboard__title">Все клиенты: {{ customers.count }}</h1>
+                <a href="{% url 'customers:customer_add' %}" class="btn btn-success tenders-dashboard__new-tender">Добавить</a>
+                <table class="table table-striped" id="datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col">ФИО</th>
+                        <th scope="col">Номер телефона</th>
+                        <th scope="col">Дата рождения</th>
+                        <th scope="col">Пол</th>
+                        <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
+                        <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if customers %}
+                        {% for customer in customers %}
+                            <tr>
+                                <td class="my-incidents__cell">{% if customer.name %}<a href="{% url 'customers:customer_detail' customer.id %}">{{ customer.name }}</a>{% else %}<a href="{% url 'customers:customer_detail' customer.id %}">Без имени</a>{% endif %}</td>
+                                <td class="my-incidents__cell">{{ customer.phone }}</td>
+                                <td class="my-incidents__cell">{{ customer.date_of_birth }}</td>
+                                <td class="my-incidents__cell">{{ customer.sex }}</td>
+                                <td><a href="{% url 'customers:customer_edit' customer.id %}" class="btn btn-warning">Изменить</a></td>
+                                <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ customer.id }}">Удалить</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Нет данных</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% for customer in customers %}
+            <div class='modal_modal' id='del_{{ customer.id }}'>
+                <div class='content'>
+                    <h1>Подтвердите действие</h1>
+                    <a class='btn btn-danger' href="{% url 'customers:customer_delete' customer.id %}">Подвердить</a>
+                    <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ customer.id }}" href="#">Отмена</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

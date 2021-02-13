@@ -5,9 +5,32 @@ from .forms import AuthLoginForm, MeasureForm
 from .models import Measure
 
 
+# AccessChecker
+def check_access(requested_groups, number):
+    groups = []
+    for group in requested_groups:
+        groups.append(group.id)
+    if number in groups:
+        return True
+    else:
+        return False
+
+
+def access_denied(request):
+    template = 'mainapp/access_denied.html'
+    return render(request, template)
+# End AccessChecker
+
+
 def index(request):
     if request.user.is_authenticated:
-        return redirect('/tender/')
+        if request.user.username == 'admin':
+            template = 'mainapp/index.html'
+            return render(request, template)
+        if check_access(request.user.groups.all(), 4):
+            return redirect('customers:customer_list')
+        else:
+            return redirect('/tender/')
     else:
         return redirect('/auth/')
 
@@ -31,14 +54,14 @@ def auth_check(request):
 class AuthLoginView(LoginView):
     template_name = 'mainapp/auth.html'
     form_class = AuthLoginForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('mainapp:index')
 
     def get_success_url(self):
         return self.success_url
 
 
 class AuthLogoutView(LogoutView):
-    next_page = reverse_lazy('auth')
+    next_page = reverse_lazy('mainapp:auth')
 
 
 def measures_list(request):
@@ -54,7 +77,7 @@ def measures_add(request):
         form = MeasureForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/measures')
+            return redirect('/measures/')
     return render(request, 'mainapp/measures_add.html')
 
 
@@ -65,7 +88,7 @@ def measures_edit(request, id):
         form = MeasureForm(request.POST, instance=measure)
         if form.is_valid():
             form.save()
-            return redirect('/measures')
+            return redirect('/measures/')
 
     context = {
         'measure': measure,
@@ -76,4 +99,4 @@ def measures_edit(request, id):
 def measures_delete(request, id):
     measure = get_object_or_404(Measure, id=id)
     measure.delete()
-    return redirect('/measures')
+    return redirect('/measures/')

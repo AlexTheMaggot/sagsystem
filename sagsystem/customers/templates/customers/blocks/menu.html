@@ -1,0 +1,22 @@
+{% load static %}
+<div class="col-xl-3 block__wrapper menu">
+    <div class="block menu__wrapper">
+        <h1 class="menu__title">Меню</h1>
+        <nav class="menu__nav">
+            <ul class="menu__ul">
+                <li class="menu__li"><a class="menu__link" href="{% url 'customers:customer_list' %}">Все клиенты</a></li>
+                <li class="menu__li"><a class="menu__link" href="{% url 'customers:customer_export' %}">Выгрузить в XSLX</a></li>
+                <li class="menu__li"><a class="menu__link" href="{% url 'customers:customer_add_by_xlsx' %}">Загрузить через XLSX</a></li>
+                <li class="menu__li"><a class="menu__link open-modal_modal bg-danger" href="#" data-modal_modal="#drop_base">Очистить базу</a></li>
+                <li class="menu__li"><a class="menu__link" href="{% static 'docs/sheet.xlsx' %}">Скачать шаблон</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class='modal_modal' id='drop_base'>
+    <div class='content'>
+        <h1>Подтвердите действие</h1>
+        <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{% url 'customers:customer_delete_bulk' %}">Подвердить</a>
+        <a class='close-modal_modal btn btn-dark' data-modal_modal="#drop_base" href="#">Отмена</a>
+    </div>
+</div>

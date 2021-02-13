@@ -1,0 +1,51 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}{{ customer.name }} - изменить{% endblock %}
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'customers/blocks/menu.html' %}
+        <div class="col-xl-9 block__wrapper tenders-new">
+            <div class="block tenders-new__wrapper">
+                <h1 class="tenders-new__title">{{ customer.name }} - изменить</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <label for="name">ФИО</label>
+                    <input required type="text" class="tenders-new__input form-control" name="name" id="name" value="{{ customer.name }}">
+                    <label for="phone">Номер телефона</label>
+                    <input type="number" class="tenders-new__input form-control" name="phone" id="phone" value="{{ customer.phone }}">
+                    <label for="date_of_birth">Дата рождения</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" class="tenders-new__input form-control" value="{{ customer.date_of_birth|date:'Y-m-d'}}">
+                    <div class="tenders-new__select input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="sex">Пол</label>
+                        </div>
+                        <select class="tenders-new__input custom-select" name="sex" id="sex">
+                                {% if customer.sex == 'Ж' %}
+                                    <option value="М">М</option>
+                                    <option value="Ж" selected>Ж</option>
+                                {% else %}
+                                    <option value="М" selected>М</option>
+                                    <option value="Ж">Ж</option>
+                                {% endif %}
+                        </select>
+                    </div>
+                    <label for="address">Адрес</label>
+                    <input type="text" class="tenders-new__input form-control" name="address" id="address" value="{{ customer.address }}">
+                    <label for="telegram">Telegram</label>
+                    <input type="text" class="tenders-new__input form-control" name="telegram" id="telegram" value="{{ customer.telegram }}">
+                    <label for="facebook">Facebook</label>
+                    <input type="text" class="tenders-new__input form-control" name="facebook" id="facebook" value="{{ customer.facebook }}">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" class="tenders-new__input form-control" name="instagram" id="instagram" value="{{ customer.instagram }}">
+                    <label for="comment">Комментарий</label>
+                    <textarea name="comment" id="comment" cols="30" rows="10" class=" form-control tenders-new__textarea">{{ customer.comment }}</textarea>
+                    <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+                    <a href="{% url 'customers:customer_list' %}" class="tenders-new__button btn btn-dark">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

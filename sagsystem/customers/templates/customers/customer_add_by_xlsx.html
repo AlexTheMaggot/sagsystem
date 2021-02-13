@@ -1,0 +1,25 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Добавить клиента - Sagsystem{% endblock %}
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'customers/blocks/menu.html' %}
+        <div class="col-xl-9 block__wrapper tenders-new">
+            <div class="block tenders-new__wrapper">
+                <h1 class="tenders-new__title">Выгрузить базу</h1>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="table" class="form-check-label">Файл с базой (XLSX)</label>
+                        <input required type="file" class="tenders-new__input form-control" name="table" id="table">
+                    </div>
+                    <input type="submit" class="tenders-new__button btn btn-success" value="Сохранить" id="add_product">
+                    <a href="{% url 'customers:customer_list' %}" class="tenders-new__button btn btn-dark">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

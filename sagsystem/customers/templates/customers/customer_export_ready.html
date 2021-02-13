@@ -1,0 +1,18 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Скачать базу{% endblock %}
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'customers/blocks/menu.html' %}
+        <div class="col-xl-9 block__wrapper tenders-new">
+            <div class="block tenders-new__wrapper">
+                <h1 class="tenders-dashboard__title">Скачать базу</h1>
+                <h5>Ваша база готова, можете скачать ее.</h5>
+                <a href="{% static 'temp/export.xlsx' %}" class="btn btn-success">Скачать</a>
+                <a href="{% url 'customers:customer_list' %}" class="btn btn-primary">Назад на главную</a>
+            </div>
+        </div>
+{% endblock %}

@@ -1,9 +1,14 @@
 {% extends 'wrapper.html' %}
 {% load static %}
-{% block title %}Главная{% endblock %}
+{% block title %}Модули{% endblock %}
 {% block content %}
-    {{ user.groups.all }}
-    {% for p in user.groups.all %}
-        <p>{{ p.id }} - {{ p.name }}</p>
-    {% endfor %}
+<div class="row align-items-center auth">
+    <div class="col-xl-4 offset-xl-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-12 auth__col">
+        <h1 class="auth__title">Все модули</h1>
+        <div class="text-center">
+            <a href="{% url 'customers:customer_list' %}" class="btn btn-primary d-block mt-5 mb-3">Клиентская база</a>
+            <a href="/tender/" class="btn btn-primary d-block">Тендерная система</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

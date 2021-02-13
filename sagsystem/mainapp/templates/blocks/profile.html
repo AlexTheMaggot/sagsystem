@@ -1,6 +1,9 @@
 <div class="col-xl-3 col-12 block__wrapper profile">
     <div class="block profile__wrapper">
         <p class="profile__user">{{ request.user.first_name }} {{ request.user.last_name }}</p>
-        <a href="{% url 'logout' %}" class="btn btn-danger profile__exit">Выйти</a>
+        <a href="{% url 'mainapp:logout' %}" class="btn btn-danger profile__exit">Выйти</a>
+        {% if request.user.username == 'admin' %}
+            <a href="/admin/" class="btn btn-primary profile__admin">Админка</a>
+        {% endif %}
     </div>
 </div>

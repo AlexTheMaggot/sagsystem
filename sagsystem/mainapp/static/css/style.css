@@ -1,5 +1,5 @@
 /* Libraries */
-@import "bootstrap.min.css";
+@import "bootstrap/bootstrap.css";
 @import "modal.css";
 @import "datatables.css";
 @import "select2.css";
@@ -150,6 +150,10 @@
 .profile__exit {
   display: block;
 }
+.profile__admin {
+  display: block;
+  margin-left: 10px;
+}
 .menu__wrapper {
   padding: 10px;
 }
@@ -165,6 +169,7 @@
   color: #FFFFFF;
   border-radius: 10px;
   transition: all 0.3s;
+  text-decoration: none;
 }
 .menu__link:hover {
   color: #FFFFFF;

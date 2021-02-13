@@ -1,0 +1,79 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Добавить клиента - Sagsystem{% endblock %}
+{% block content %}
+    <div class="row incidents">
+        {% include 'blocks/logo.html' %}
+        {% include 'blocks/title.html' %}
+        {% include 'blocks/profile.html' %}
+        {% include 'customers/blocks/menu.html' %}
+        <div class="col-xl-9 block__wrapper tenders-new">
+            <div class="block tenders-new__wrapper">
+                <h1 class="tenders-dashboard__title">{{ customer.name }}</h1>
+                <a href="{% url 'customers:customer_edit' customer.id %}" class="btn btn-warning tenders-dashboard__new-tender">Изменить</a>
+                <a href="#" class="open-modal_modal btn btn-danger tenders-dashboard__new-tender" data-modal_modal="#del_{{ customer.id }}">Удалить</a>
+                <a href="{% url 'customers:customer_list' %}" class="btn btn-dark tenders-dashboard__new-tender">Назад</a>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <h5>Номер телефона</h5>
+                        {% if customer.phone %}
+                            <p>{{ customer.phone }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Дата рождения</h5>
+                        {% if customer.date_of_birth %}
+                            <p>{{ customer.date_of_birth|date:'d.m.Y' }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Пол</h5>
+                        {% if customer.sex %}
+                            <p>{{ customer.sex }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Адрес</h5>
+                        {% if customer.address %}
+                            <p>{{ customer.address }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Telegram</h5>
+                        {% if customer.telegram %}
+                            <p>{{ customer.telegram }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Facebook</h5>
+                        {% if customer.facebook %}
+                            <p>{{ customer.facebook }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                        <h5>Instagram</h5>
+                        {% if customer.instagram %}
+                            <p>{{ customer.instagram }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-xl-6">
+                        <h5>Комментарий</h5>
+                        {% if customer.comment %}
+                            <p>{{ customer.comment }}</p>
+                        {% else %}
+                            <p>Не указано</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='modal_modal' id='del_{{ customer.id }}'>
+            <div class='content'>
+                <h1>Подтвердите действие</h1>
+                <a class='btn btn-danger' data-modal_modal="#tender-delete" href="{% url 'customers:customer_delete' customer.id %}">Подвердить</a>
+                <a class='close-modal_modal btn btn-dark' data-modal_modal="#del_{{ product.id }}" href="#">Отмена</a>
+            </div>
+        </div>
+{% endblock %}
