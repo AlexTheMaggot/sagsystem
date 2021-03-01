@@ -243,6 +243,10 @@
 }
 /* End Blocks */
 /* Global Styles */
+.body {
+  opacity: 0;
+  transition: all 0.3s;
+}
 .background {
   background: url("../img/bg.jpg") center repeat;
   min-height: 100vh;

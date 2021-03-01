@@ -1,4 +1,5 @@
 $(window).on('load', function () {
+    $('.body').css('opacity', '1');
     $(".modal_modal").each(function () {
         $(this).wrap('<div class="overlay"></div>')
     });

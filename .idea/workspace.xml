@@ -2,95 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc626895-99b2-4c88-a391-294a5fc9366f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/migrations/0002_auto_20210211_0021.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/migrations/0003_auto_20210211_1722.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_add_by_xlsx.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_export_ready.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/customer_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/customers/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-grid.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/bootstrap/bootstrap.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/docs/sheet.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.esm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.esm.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/bootstrap/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/temp/export.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/mainapp/access_denied.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sagsystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sagsystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/menu.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/menu.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/profile.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/blocks/profile.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.less" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/css/style.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/templates/blocks/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/blocks/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/templates/mainapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/mainapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/templates/wrapper.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/templates/wrapper.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/mainapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/sagsystem/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/sagsystem/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/sagsystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/sagsystem/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/customers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/customers/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/customers/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/templates/testapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/customers/templates/customers/blocks/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/sagsystem/customers/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sagsystem/testapp/views.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +160,9 @@
       <workItem from="1613114437758" duration="13437000" />
       <workItem from="1613146513771" duration="6745000" />
       <workItem from="1613195584064" duration="121000" />
-      <workItem from="1613200759025" duration="8718000" />
+      <workItem from="1613200759025" duration="9599000" />
+      <workItem from="1613482329318" duration="260000" />
+      <workItem from="1614580282412" duration="252000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1606566935289</created>
@@ -286,7 +206,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609761081211</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="system fix">
+      <created>1613215720181</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613215720182</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add app customers">
+      <created>1613215785773</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613215785773</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +242,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="system fix" />
+    <MESSAGE value="add app customers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add app customers" />
   </component>
 </project>
