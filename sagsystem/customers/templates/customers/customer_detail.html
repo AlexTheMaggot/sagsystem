@@ -11,7 +11,10 @@
             <div class="block tenders-new__wrapper">
                 <h1 class="tenders-dashboard__title">{{ customer.name }}</h1>
                 <a href="{% url 'customers:customer_edit' customer.id %}" class="btn btn-warning tenders-dashboard__new-tender">Изменить</a>
-                <a href="#" class="open-modal_modal btn btn-danger tenders-dashboard__new-tender" data-modal_modal="#del_{{ customer.id }}">Удалить</a>
+                {% if 5 in groups %}
+                {% else %}
+                    <a href="#" class="open-modal_modal btn btn-danger tenders-dashboard__new-tender" data-modal_modal="#del_{{ customer.id }}">Удалить</a>
+                {% endif %}
                 <a href="{% url 'customers:customer_list' %}" class="btn btn-dark tenders-dashboard__new-tender">Назад</a>
                 <div class="row">
                     <div class="col-xl-6">

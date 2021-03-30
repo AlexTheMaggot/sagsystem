@@ -19,7 +19,10 @@
                         <th scope="col">Дата рождения</th>
                         <th scope="col">Пол</th>
                         <th scope="col" class="tenders-dashboard__buttoncell">Изменить</th>
-                        <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+                        {% if 5 in groups %}
+                        {% else %}
+                            <th scope="col" class="tenders-dashboard__buttoncell">Удалить</th>
+                        {% endif %}
                     </tr>
                     </thead>
                     <tbody>
@@ -31,7 +34,10 @@
                                 <td class="my-incidents__cell">{{ customer.date_of_birth }}</td>
                                 <td class="my-incidents__cell">{{ customer.sex }}</td>
                                 <td><a href="{% url 'customers:customer_edit' customer.id %}" class="btn btn-warning">Изменить</a></td>
-                                <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ customer.id }}">Удалить</a></td>
+                                {% if 5 in groups %}
+                                {% else %}
+                                    <td><a href="#" class="open-modal_modal btn btn-danger" data-modal_modal="#del_{{ customer.id }}">Удалить</a></td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                     {% else %}
@@ -43,7 +49,6 @@
                 </table>
             </div>
         </div>
-
         {% for customer in customers %}
             <div class='modal_modal' id='del_{{ customer.id }}'>
                 <div class='content'>
