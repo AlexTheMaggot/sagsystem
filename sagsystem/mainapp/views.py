@@ -22,12 +22,21 @@ def access_denied(request):
 # End AccessChecker
 
 
+def group_list(groups):
+    list_of_groups = []
+    for group in groups:
+        list_of_groups.append(group.id)
+    return list_of_groups
+
+
 def index(request):
     if request.user.is_authenticated:
         if request.user.username == 'admin':
             template = 'mainapp/index.html'
             return render(request, template)
         if check_access(request.user.groups.all(), 4):
+            return redirect('customers:customer_list')
+        elif check_access(request.user.groups.all(), 5):
             return redirect('customers:customer_list')
         else:
             return redirect('/tender/')
