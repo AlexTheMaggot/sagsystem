@@ -1,7 +1,7 @@
 # InternalImports
 from .models import Customer
 from .forms import CustomerForm
-from mainapp.views import check_access
+from mainapp.views import check_access, group_list
 # End InternalImports
 
 # DjangoImports
@@ -16,10 +16,12 @@ from openpyxl.styles import Font
 
 # CustomerViews
 def customer_list(request):
-    if check_access(request.user.groups.all(), 4):
+    if check_access(request.user.groups.all(), 4) or check_access(request.user.groups.all(), 5):
         customers = Customer.objects.all()
+        groups = group_list(request.user.groups.all())
         context = {
             'customers': customers,
+            'groups': groups,
         }
         template = 'customers/customer_list.html'
         return render(request, template, context)
@@ -28,10 +30,12 @@ def customer_list(request):
 
 
 def customer_detail(request, customer_id):
-    if check_access(request.user.groups.all(), 4):
+    if check_access(request.user.groups.all(), 4) or check_access(request.user.groups.all(), 5):
         customer = get_object_or_404(Customer, id=customer_id)
+        groups = group_list(request.user.groups.all())
         context = {
             'customer': customer,
+            'groups': groups,
         }
         template = 'customers/customer_detail.html'
         return render(request, template, context)
@@ -40,10 +44,14 @@ def customer_detail(request, customer_id):
 
 
 def customer_add(request):
-    if check_access(request.user.groups.all(), 4):
+    if check_access(request.user.groups.all(), 4) or check_access(request.user.groups.all(), 5):
         if request.method == 'GET':
+            groups = group_list(request.user.groups.all())
+            context = {
+                'groups': groups,
+            }
             template = 'customers/customer_add.html'
-            return render(request, template)
+            return render(request, template, context)
         elif request.method == 'POST':
             new_customer = CustomerForm(request.POST)
             if new_customer.is_valid():
@@ -55,11 +63,13 @@ def customer_add(request):
 
 
 def customer_edit(request, customer_id):
-    if check_access(request.user.groups.all(), 4):
+    if check_access(request.user.groups.all(), 4) or check_access(request.user.groups.all(), 5):
         customer = get_object_or_404(Customer, id=customer_id)
         if request.method == 'GET':
+            groups = group_list(request.user.groups.all())
             context = {
                 'customer': customer,
+                'groups': groups,
             }
             template = 'customers/customer_edit.html'
             return render(request, template, context)
@@ -92,10 +102,14 @@ def customer_delete_bulk(request):
 
 
 def customer_add_by_xlsx(request):
-    if check_access(request.user.groups.all(), 4):
+    if check_access(request.user.groups.all(), 4) or check_access(request.user.groups.all(), 5):
         if request.method == 'GET':
+            groups = group_list(request.user.groups.all())
             template = 'customers/customer_add_by_xlsx.html'
-            return render(request, template)
+            context = {
+                'groups': groups,
+            }
+            return render(request, template, context)
         elif request.method == 'POST':
             file = request.FILES['table']
             wt = openpyxl.load_workbook(file)
